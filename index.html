@@ -1,146 +1,162 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Archivo Calamidad</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Archivo Calamidad</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
 
 body{
     background:#e6dcc6;
-    background-image:
-linear-gradient(rgba(255,255,255,.05), rgba(0,0,0,.03));
     color:#2b2b2b;
-    font-family: 'Special Elite', serif;
-    max-width: 800px;
+    font-family:'Special Elite', serif;
+    max-width:850px;
     margin:auto;
-    padding:40px 25px;
+    padding:50px 30px;
     line-height:1.8;
 }
 
 h1{
     text-align:center;
-    letter-spacing:4px;
+    letter-spacing:5px;
     font-weight:normal;
 }
 
-h2{
-    margin-top:40px;
-    letter-spacing:2px;
+.subtitulo{
+    text-align:center;
+    margin-bottom:50px;
+    opacity:.7;
 }
 
 .archivo{
-    border-top:1px solid #888;
-    border-bottom:1px solid #888;
-    padding:25px 0;
-    margin:40px 0;
-    .archivo{
     background:rgba(255,255,255,.25);
     padding:30px;
-    box-shadow:0 0 15px rgba(0,0,0,.08);
-}
-}
-
-.nota{
-    font-size:0.85em;
-    letter-spacing:1px;
-    color:#666;
+    border:1px solid #9d927f;
 }
 
-.boton{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 20px;
-    border:1px solid #222;
-    text-decoration:none;
-    color:#222;
-}
-
-.boton:hover{
-    background:#ddd4c1;
-}
-
-hr{
-    margin:60px 0;
-    border:none;
-    border-top:1px solid #999;
-}
-
-.footer{
-    margin-top:40px;
-}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-</style></head><body><h1>ARCHIVO CALAMIDAD</h1><p style="text-align:center;">
-Todavía queda tiempo.
-</p><div class="archivo"><p class="nota">
-MATERIAL RECUPERADO
-</p><p>
-Durante la restauración de una vivienda antigua se encontraron siete cintas VHS, correspondencia personal y fotografías deterioradas.
-</p><p>
-La procedencia exacta del material continúa siendo desconocida.
-</p><p>
-No fue posible determinar la identidad completa de las personas involucradas.
-</p><a class="boton" href="#augurio">
-ACCEDER AL ARCHIVO
-    <div class="menu-archivos">
-
-<a href="archivos/augurio.html">01 — AUGURIO</a>
-<a href="archivos/exhalada.html">02 — EXHALADA</a>
-<a href="archivos/raspando.html">03 — RASPANDO EL FONDO</a>
-<a href="archivos/olvido.html">04 — OLVIDO</a>
-<a href="archivos/permanencia.html">05 — PERMANENCIA</a>
-<a href="archivos/meaculpa.html">06 — MEA CULPA</a>
-<a href="archivos/letargia.html">07 — LETARGIA</a>
-
-</div>
-</a></div><div id="augurio"><p class="nota">
-    .menu-archivos{
+.menu{
     margin-top:40px;
 }
 
-.menu-archivos a{
+.menu a{
     display:block;
     text-decoration:none;
     color:#222;
-    border-bottom:1px solid #999;
-    padding:12px 0;
+    padding:14px 0;
+    border-bottom:1px solid #aaa;
+    transition:.2s;
 }
 
-.menu-archivos a:hover{
-    padding-left:10px;
+.menu a:hover{
+    padding-left:12px;
 }
-ARCHIVO RECUPERADO 01/07
-</p><h2>AUGURIO</h2><p>
-No sé si tengo buenos motivos para escribirte esto.
-</p><p>
-Hay algo que tengo muchas ganas de confesarte todo el tiempo.
-</p><p>
-Estamos participando en un intercambio siniestro.
-Estamos haciendo el mundo más nuestro.
-</p><p>
-Quiero ponerlo en palabras, pero también quiero ponerlo en imágenes.
-</p><p>
-Me asusta tanto que me mires como si no supieras nada de mí.
-Como si no vieras lo que para mí es tan obvio.
-</p><p>
-La pulsión que tengo de guardar este momento para poder mirarlo para siempre.
-</p><p>
-Por ahora prefiero dejarte con la idea que tenés de mí.
-</p><p>
-Quiero saber si puedo ser mejor.
-</p><p>
-Quiero saber si vas a seguir buscando.
-</p><p>
-Faltan seis cintas.
-</p><p>
--C
-</p></div><hr><div class="footer"><p class="nota">
+
+.estado{
+    float:right;
+    opacity:.5;
+}
+
+.footer{
+    margin-top:60px;
+    border-top:1px solid #aaa;
+    padding-top:25px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>ARCHIVO CALAMIDAD</h1>
+
+<p class="subtitulo">
+Todavía queda tiempo.
+</p>
+
+<div class="archivo">
+
+<p>
+MATERIAL RECUPERADO
+</p>
+
+<p>
+Durante la restauración de una vivienda antigua se encontraron siete cintas VHS, fotografías deterioradas y correspondencia personal.
+</p>
+
+<p>
+La procedencia exacta del material continúa siendo desconocida.
+</p>
+
+<p>
+No fue posible determinar la identidad completa de las personas involucradas.
+</p>
+
+<div class="menu">
+
+<a href="augurio.html">
+01 — AUGURIO
+<span class="estado">RECUPERADO</span>
+</a>
+
+<a href="#">
+02 — EXHALADA
+<span class="estado">EN RESTAURACIÓN</span>
+</a>
+
+<a href="#">
+03 — RASPANDO EL FONDO
+<span class="estado">EN RESTAURACIÓN</span>
+</a>
+
+<a href="#">
+04 — OLVIDO
+<span class="estado">DAÑADO</span>
+</a>
+
+<a href="#">
+05 — PERMANENCIA
+<span class="estado">DAÑADO</span>
+</a>
+
+<a href="#">
+06 — MEA CULPA
+<span class="estado">DAÑADO</span>
+</a>
+
+<a href="#">
+07 — LETARGIA
+<span class="estado">DAÑADO</span>
+</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<p>
 EXHIBICIÓN PÚBLICA
-</p><p>
+</p>
+
+<p>
 15 DE AGOSTO<br>
 CC MATIENZO
-</p><p>
+</p>
+
+<p>
 Proyección de la película de videoclips de <strong>Calamidad!</strong>
-</p><a class="boton" href="#">
-RESERVAR ACCESO
-</a></div></body>
+</p>
+
+</div>
+
+</body>
 </html>
+
