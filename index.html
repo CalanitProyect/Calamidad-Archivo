@@ -23,9 +23,17 @@ box-sizing:border-box;
 
 body{
 
-background:url("fondojpg.jpg");
-background-size:cover;
-background-position:center;
+margin:0;
+
+background:#ece5d8;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
 
 font-family:'Special Elite', serif;
 
@@ -37,11 +45,13 @@ overflow:hidden;
 
 position:relative;
 
-width:100vw;
-height:100vh;
+width:min(92vw,1300px);
 
 }
-
+.corcho{
+    width:100%;
+    display:block;
+}
 /* ------------------------- */
 
 .expediente{
@@ -295,6 +305,7 @@ transform:rotate(0deg) scale(1.05);
 <body>
 
 <div class="tablero">
+<img src="fondojpg.jpg" class="corcho">
 
 <div class="expediente">
 
