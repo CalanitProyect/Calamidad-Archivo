@@ -1,72 +1,291 @@
 <!DOCTYPE html>
-
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Archivo Calamidad</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    background:#e6dcc6;
-    color:#2b2b2b;
-    font-family:'Special Elite', serif;
-    max-width:850px;
-    margin:auto;
-    padding:50px 30px;
-    line-height:1.8;
+
+background:url("fondojpg.jpg");
+background-size:cover;
+background-position:center;
+
+font-family:'Special Elite', serif;
+
+overflow:hidden;
+
 }
 
-h1{
-    text-align:center;
-    letter-spacing:5px;
-    font-weight:normal;
+.tablero{
+
+position:relative;
+
+width:100vw;
+height:100vh;
+
 }
 
-.subtitulo{
-    text-align:center;
-    margin-bottom:50px;
-    opacity:.7;
+/* ------------------------- */
+
+.expediente{
+
+position:absolute;
+
+left:70px;
+top:50px;
+
+width:360px;
+
+background:#f8f3ea;
+
+padding:35px;
+
+transform:rotate(-2deg);
+
+box-shadow:0 10px 18px rgba(0,0,0,.30);
+
 }
 
-.archivo{
-    background:rgba(255,255,255,.25);
-    padding:30px;
-    border:1px solid #9d927f;
+.expediente h1{
+
+letter-spacing:5px;
+
+font-size:30px;
+
+margin-bottom:20px;
+
 }
 
-.menu{
-    margin-top:40px;
+.expediente p{
+
+line-height:1.8;
+
+font-size:15px;
+
 }
 
-.menu a{
-    display:block;
-    text-decoration:none;
-    color:#222;
-    padding:14px 0;
-    border-bottom:1px solid #aaa;
-    transition:.2s;
+.cinta{
+
+position:absolute;
+
+width:120px;
+
+height:35px;
+
+background:rgba(235,220,170,.55);
+
+top:-10px;
+
+left:120px;
+
+transform:rotate(3deg);
+
 }
 
-.menu a:hover{
-    padding-left:12px;
+/* ------------------------- */
+
+.objeto{
+
+position:absolute;
+
+transition:.25s;
+
 }
 
-.estado{
-    float:right;
-    opacity:.5;
+.objeto img{
+
+display:block;
+
+filter:drop-shadow(0 10px 12px rgba(0,0,0,.35));
+
+transition:.25s;
+
 }
 
-.footer{
-    margin-top:60px;
-    border-top:1px solid #aaa;
-    padding-top:25px;
+.objeto:hover img{
+
+transform:scale(1.08) rotate(-4deg);
+
+}
+
+.chinche{
+
+width:14px;
+
+height:14px;
+
+background:#b12d2d;
+
+border-radius:50%;
+
+margin:auto;
+
+margin-bottom:-4px;
+
+box-shadow:0 2px 4px rgba(0,0,0,.45);
+
+position:relative;
+
+z-index:5;
+
+}
+
+/* ------------------------- */
+
+.fichin{
+
+left:58%;
+top:16%;
+
+}
+
+.fichin img{
+
+width:120px;
+
+}
+
+/* ------------------------- */
+
+.libro{
+
+left:76%;
+top:18%;
+
+}
+
+.libro img{
+
+width:180px;
+
+}
+
+/* ------------------------- */
+
+.tacita{
+
+left:52%;
+top:48%;
+
+}
+
+.tacita img{
+
+width:130px;
+
+}
+
+/* ------------------------- */
+
+.entrada{
+
+left:78%;
+top:46%;
+
+}
+
+.entrada img{
+
+width:170px;
+
+transform:rotate(-8deg);
+
+}
+
+/* ------------------------- */
+
+.llave{
+
+left:28%;
+top:70%;
+
+}
+
+.llave img{
+
+width:180px;
+
+}
+
+/* ------------------------- */
+
+.cenicero{
+
+left:63%;
+top:70%;
+
+}
+
+.cenicero img{
+
+width:150px;
+
+}
+
+/* ------------------------- */
+
+.vhs{
+
+left:83%;
+top:72%;
+
+}
+
+.vhs img{
+
+width:170px;
+
+}
+
+/* ------------------------- */
+
+.entradas{
+
+position:absolute;
+
+right:60px;
+
+bottom:40px;
+
+background:#f8f3ea;
+
+padding:18px 28px;
+
+text-decoration:none;
+
+color:#222;
+
+border:1px solid #999;
+
+box-shadow:0 8px 15px rgba(0,0,0,.25);
+
+transform:rotate(2deg);
+
+transition:.2s;
+
+}
+
+.entradas:hover{
+
+transform:rotate(0deg) scale(1.05);
+
 }
 
 </style>
@@ -75,98 +294,96 @@ h1{
 
 <body>
 
-<h1>ARCHIVO CALAMIDAD!</h1>
+<div class="tablero">
 
-<p class="subtitulo">
-Todavía queda tiempo.
-</p>
+<div class="expediente">
 
-<div class="archivo">
+<div class="cinta"></div>
 
-<p>
-MATERIAL RECUPERADO
-</p>
+<h1>ARCHIVO CALAMIDAD</h1>
 
 <p>
-Durante la restauración de una vivienda antigua se encontraron siete cintas VHS, fotografías deterioradas y correspondencia personal.
+
+Durante la restauración de una vivienda antigua fueron recuperadas siete cintas VHS junto con correspondencia y objetos personales.
+
+<br><br>
+
+La identidad de las personas involucradas permanece incompleta.
+
 </p>
-
-<p>
-La procedencia exacta del material continúa siendo desconocida.
-</p>
-
-<p>
-No fue posible determinar la identidad completa de las personas involucradas.
-</p>
-
-<div class="menu">
-
-<a href="augurio.html">
-01 — AUGURIO
-<span class="estado">RECUPERADO</span>
-</a>
-
-<a href="exhalada.html">
-02 — EXHALADA
-<span class="estado">RECUPRADO</span>
-</a>
-
-<a href="raspandoelfondo.html">
-03 — RASPANDO EL FONDO
-<span class="estado">EN RESTAURACIÓN</span>
-</a>
-
-<a href="olvido.html">
-04 — OLVIDO
-<span class="estado">DAÑADO</span>
-</a>
-
-<a href="mea-culpa.html">
-05 — MEA CULPA
-<span class="estado">DAÑADO</span>
-</a>
-
-<a href="permanencia.html">
-06 — PERMANENCIA
-<span class="estado">DAÑADO</span>
-</a>
-
-<a href="letargia.html">
-07 — LETARGIA
-<span class="estado">DAÑADO</span>
-</a>
 
 </div>
 
-</div>
+<a href="augurio.html" class="objeto fichin">
 
-<div class="footer">
+<div class="chinche"></div>
 
-<p>
-EXHIBICIÓN PÚBLICA
-</p>
+<img src="imagenes/fichin.png">
 
-<p>
-15 DE AGOSTO<br>
-CC MATIENZO
-</p>
+</a>
 
-<p>
-Las cintas se proyectarán por una última vez...
-</p>
-<p class="nota">
-EXHIBICIÓN PÚBLICA · ACCESO CON RESERVA
-</p>
+<a href="permanencia.html" class="objeto libro">
 
-<a class="boton"
+<div class="chinche"></div>
+
+<img src="imagenes/libro.png">
+
+</a>
+
+<a href="exhalada.html" class="objeto tacita">
+
+<div class="chinche"></div>
+
+<img src="imagenes/tacita.png">
+
+</a>
+
+<a href="olvido.html" class="objeto entrada">
+
+<div class="chinche"></div>
+
+<img src="imagenes/entrada.png">
+
+</a>
+
+<a href="meaculpa.html" class="objeto llave">
+
+<div class="chinche"></div>
+
+<img src="imagenes/llave.png">
+
+</a>
+
+<a href="raspando.html" class="objeto cenicero">
+
+<div class="chinche"></div>
+
+<img src="imagenes/cenicero.png">
+
+</a>
+
+<a href="letargia.html" class="objeto vhs">
+
+<div class="chinche"></div>
+
+<img src="imagenes/vhs.png">
+
+</a>
+
+<a class="entradas"
+
 href="https://ccmatienzo.com.ar/event/111516-la-fatal-1508"
+
 target="_blank">
 
-RESERVAR ACCESO
+15 · AGOSTO<br>
+
+CC MATIENZO
 
 </a>
+
 </div>
 
 </body>
-</html>
 
+</html>
