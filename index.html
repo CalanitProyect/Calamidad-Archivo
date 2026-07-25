@@ -118,7 +118,39 @@ position:absolute;
 transition:.25s;
 
 }
+.pin{
 
+position:absolute;
+
+width:18px;
+
+left:50%;
+
+top:-8px;
+
+transform:translateX(-50%);
+
+z-index:10;
+
+filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
+
+}
+
+.pieza{
+
+display:block;
+
+filter:drop-shadow(0 8px 10px rgba(0,0,0,.28));
+
+transition:.25s;
+
+}
+
+.objeto:hover .pieza{
+
+transform:rotate(-3deg) scale(1.05);
+
+}
 .objeto img{
 
 display:block;
@@ -327,23 +359,24 @@ La identidad de las personas involucradas permanece incompleta.
 
 <a href="augurio.html" class="objeto fichin">
 
-<div class="chinche"></div>
+<img class="pin" src="chinchee.png">
 
-<img src="imagenes/fichinprovisorio.jpeg">
+<img class="pieza" src="fichinprovisorio.jpeg">
 
 </a>
 
 <a href="permanencia.html" class="objeto libro">
 
-<div class="chinche"></div>
-
+<img class="pin" src="chinchee.png">
+    
 <img src="imagenes/libroverdeprovisorio.jpeg">
 
 </a>
 
 <a href="exhalada.html" class="objeto tacita">
 
-<div class="chinche"></div>
+
+<img class="pin" src="chinchee.png">
 
 <img src="tacitaprovisoria.jpeg">
 
@@ -351,7 +384,8 @@ La identidad de las personas involucradas permanece incompleta.
 
 <a href="olvido.html" class="objeto entrada">
 
-<div class="chinche"></div>
+
+<img class="pin" src="chinchee.png">
 
 <img src="ticketprovisorio.jpg">
 
@@ -359,7 +393,8 @@ La identidad de las personas involucradas permanece incompleta.
 
 <a href="meaculpa.html" class="objeto llave">
 
-<div class="chinche"></div>
+
+<img class="pin" src="chinchee.png">
 
 <img src="llaveprovisoria.jpeg">
 
@@ -367,7 +402,8 @@ La identidad de las personas involucradas permanece incompleta.
 
 <a href="raspando.html" class="objeto cenicero">
 
-<div class="chinche"></div>
+
+<img class="pin" src="chinchee.png">
 
 <img src="ceniceroprovisorio.jpg">
 
@@ -375,7 +411,8 @@ La identidad de las personas involucradas permanece incompleta.
 
 <a href="letargia.html" class="objeto vhs">
 
-<div class="chinche"></div>
+
+<img class="pin" src="chinchee.png">
 
 <img src="vhsprovisorio.jpg">
 
