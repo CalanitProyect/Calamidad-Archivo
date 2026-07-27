@@ -168,20 +168,21 @@ box-shadow:0 8px 18px rgba(0,0,0,.28);
 
 transition:.25s;
 
-transform-origin:top center;
-
+transform-origin:20px 0;
 }
 .objeto{
 
 transition:transform .25s;
 }
 
-.objeto:hover{
+.objeto:hover .pieza{
 
-transform:translateY(-6px) scale(1.02);
+transform:
+translateY(-4px)
+rotate(var(--rot))
+scale(1.03);
 
 }
-
 
 
 /* ------------------------- */
