@@ -152,6 +152,48 @@ z-index:30;
 pointer-events:none;
 
 filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
+}
+.polaroid{
+
+display:inline-block;
+
+background:#faf7f1;
+
+padding:10px 10px 36px;
+
+border:1px solid rgba(0,0,0,.08);
+
+box-shadow:0 8px 18px rgba(0,0,0,.28);
+
+margin-top:8px;
+
+transition:.25s;
+
+}
+
+.foto{
+
+display:block;
+
+width:100%;
+
+}
+
+.titulo-polaroid{
+
+margin-top:12px;
+
+text-align:center;
+
+font-family:'Cedarville Cursive', cursive;
+
+font-size:25px;
+
+color:#3d3d3d;
+
+line-height:1;
+
+user-select:none;
 
 }
 .pieza{
@@ -190,196 +232,175 @@ scale(1.03);
 
 /* ------------------------- */
 
-/* ------------------------- */
+/* ==========================================
+   OBJETOS DEL TABLERO
+========================================== */
 
 .fichin{
-
-left:58%;
-top:12%;
-
-transform:rotate(-8deg);
-
+    left:58%;
+    top:12%;
+    --rot:-8deg;
 }
-
-
 
 .fichin .pin{
-
-left:20px;
-
-transform:rotate(-15deg);
-
+    left:22px;
+    transform:rotate(-15deg);
 }
-/* ------------------------- */
+
+.fichin .polaroid{
+    transform:rotate(var(--rot));
+    transform-origin:22px 0;
+}
+
+
+/* ---------- LIBRO ---------- */
 
 .libro{
-
-left:76%;
-top:17%;
-
-}
-
-.libro .pieza{
-
-transform:rotate(6deg);
-
+    left:76%;
+    top:17%;
+    --rot:6deg;
 }
 
 .libro .pin{
-
-left:145px;
-
-transform:rotate(18deg);
-
+    left:145px;
+    transform:rotate(18deg);
 }
-/* ------------------------- */
+
+.libro .polaroid{
+    transform:rotate(var(--rot));
+    transform-origin:145px 0;
+}
+
+
+/* ---------- TACITA ---------- */
 
 .tacita{
-
-left:50%;
-top:46%;
-
-}
-
-.tacita .pieza{
-
-transform:rotate(8deg);
-
+    left:50%;
+    top:46%;
+    --rot:8deg;
 }
 
 .tacita .pin{
-
-left:35px;
-
-transform:rotate(-10deg);
-
+    left:35px;
+    transform:rotate(-10deg);
 }
 
-/* ------------------------- */
+.tacita .polaroid{
+    transform:rotate(var(--rot));
+    transform-origin:35px 0;
+}
+
+
+/* ---------- ENTRADA ---------- */
 
 .entrada{
-
-left:77%;
-top:41%;
-
-}
-
-.entrada .pieza{
-
-transform:rotate(-11deg);
-
+    left:77%;
+    top:41%;
+    --rot:-11deg;
 }
 
 .entrada .pin{
-
-left:140px;
-
-transform:rotate(18deg);
-
+    left:140px;
+    transform:rotate(18deg);
 }
 
-/* ------------------------- */
+.entrada .polaroid{
+    transform:rotate(var(--rot));
+    transform-origin:140px 0;
+}
+
+
+/* ---------- LLAVE ---------- */
 
 .llave{
-
-left:23%;
-top:73%;
-
-}
-
-.llave .pieza{
-
-transform:rotate(-12deg);
-
+    left:23%;
+    top:73%;
+    --rot:-12deg;
 }
 
 .llave .pin{
-
-left:25px;
-
-transform:rotate(-18deg);
-
+    left:25px;
+    transform:rotate(-18deg);
 }
 
-/* ------------------------- */
+.llave .polaroid{
+    transform:rotate(var(--rot));
+    transform-origin:25px 0;
+}
+
+
+/* ---------- CENICERO ---------- */
 
 .cenicero{
-
-left:58%;
-top:72%;
-
-}
-
-.cenicero .pieza{
-
-transform:rotate(5deg);
-
+    left:58%;
+    top:72%;
+    --rot:5deg;
 }
 
 .cenicero .pin{
-
-left:90px;
-
-transform:rotate(12deg);
-
+    left:90px;
+    transform:rotate(12deg);
 }
 
-/* ------------------------- */
+.cenicero .polaroid{
+    transform:rotate(var(--rot));
+    transform-origin:90px 0;
+}
+
+
+/* ---------- VHS ---------- */
+
 .vhs{
-
-left:80%;
-top:76%;
-
-}
-
-.vhs .pieza{
-
-transform:rotate(-4deg);
-
+    left:80%;
+    top:76%;
+    --rot:-4deg;
 }
 
 .vhs .pin{
-
-left:135px;
-
-transform:rotate(-8deg);
-
+    left:135px;
+    transform:rotate(-8deg);
 }
 
-/* ------------------------- */
+.vhs .polaroid{
+    transform:rotate(var(--rot));
+    transform-origin:135px 0;
+}
+
+
+/* ==========================================
+   BOTÓN ENTRADAS
+========================================== */
 
 .entradas{
 
-position:absolute;
+    position:absolute;
 
-right:60px;
+    right:60px;
+    bottom:40px;
 
-bottom:40px;
+    background:#f8f3ea;
 
-background:#f8f3ea;
+    padding:18px 28px;
 
-padding:18px 28px;
+    border:1px solid #999;
 
-text-decoration:none;
+    text-decoration:none;
 
-color:#222;
+    color:#222;
 
-border:1px solid #999;
+    box-shadow:0 8px 15px rgba(0,0,0,.25);
 
-box-shadow:0 8px 15px rgba(0,0,0,.25);
+    transform:rotate(2deg);
 
-transform:rotate(2deg);
-
-transition:.2s;
+    transition:.25s;
 
 }
 
 .entradas:hover{
 
-transform:rotate(0deg) scale(1.05);
+    transform:rotate(0deg) scale(1.05);
 
 }
-
 </style>
 
 </head>
@@ -409,73 +430,121 @@ La identidad de las personas involucradas permanece incompleta.
 
 <a href="augurio.html" class="objeto fichin">
 
-<img class="pin" src="img/chincherojo.png">
+    <img class="pin" src="img/chincherojo.png">
 
-<img class="pieza" src="img/fichinprovisorio.jpeg">
+    <div class="polaroid">
 
-</a>
+        <img class="foto" src="img/fichinprovisorio.jpeg">
 
-<a href="permanencia.html" class="objeto libro">
+        <div class="titulo-polaroid">
+            01 · Augurio
+        </div>
 
-<img class="pin" src="img/chincherojo.png">
-    
-<img class="pieza"  src="img/libroverdeprovisorio.jpeg">
+    </div>
 
 </a>
 
 <a href="exhalada.html" class="objeto tacita">
 
+    <img class="pin" src="img/chincherojo.png">
 
-<img class="pin" src="img/chincherojo.png">
+    <div class="polaroid">
 
-<img class="pieza" src="img/tacitaprovisoria.jpeg">
+        <img class="foto" src="img/tacitaprovisoria.jpeg">
 
-</a>
+        <div class="titulo-polaroid">
+            02 · Exhalada
+        </div>
 
-<a href="olvido.html" class="objeto entrada">
-
-
-<img class="pin" src="img/chincherojo.png">
-
-<img class="pieza" src="img/ticketprovisorio.jpg">
-
-</a>
-
-<a href="mea-culpa.html" class="objeto llave">
-
-
-<img class="pin" src="img/chincherojo.png">
-
-<img class="pieza" src="img/llaveprovisoria.jpeg">
+    </div>
 
 </a>
 
 <a href="raspandoelfondo.html" class="objeto cenicero">
 
+    <img class="pin" src="img/chincherojo.png">
 
-<img class="pin" src="img/chincherojo.png">
+    <div class="polaroid">
 
-<img class="pieza" src="img/ceniceroprovisorio.jpg">
+        <img class="foto" src="img/ceniceroprovisorio.jpg">
+
+        <div class="titulo-polaroid">
+            03 · Raspando el fondo
+        </div>
+
+    </div>
+
+</a>
+
+<a href="olvido.html" class="objeto entrada">
+
+    <img class="pin" src="img/chincherojo.png">
+
+    <div class="polaroid">
+
+        <img class="foto" src="img/ticketprovisorio.jpg">
+
+        <div class="titulo-polaroid">
+            04 · Olvido
+        </div>
+
+    </div>
+
+</a>
+
+<a href="permanencia.html" class="objeto libro">
+
+    <img class="pin" src="img/chincherojo.png">
+
+    <div class="polaroid">
+
+        <img class="foto" src="img/libroverdeprovisorio.jpeg">
+
+        <div class="titulo-polaroid">
+            05 · Permanencia
+        </div>
+
+    </div>
+
+</a>
+
+<a href="mea-culpa.html" class="objeto llave">
+
+    <img class="pin" src="img/chincherojo.png">
+
+    <div class="polaroid">
+
+        <img class="foto" src="img/llaveprovisoria.jpeg">
+
+        <div class="titulo-polaroid">
+            06 · Mea Culpa
+        </div>
+
+    </div>
 
 </a>
 
 <a href="letargia.html" class="objeto vhs">
 
+    <img class="pin" src="img/chincherojo.png">
 
-<img class="pin" src="img/chincherojo.png">
+    <div class="polaroid">
 
-<img class="pieza" src="img/vhsprovisorio.jpg">
+        <img class="foto" src="img/vhsprovisorio.jpg">
+
+        <div class="titulo-polaroid">
+            07 · Letargia
+        </div>
+
+    </div>
 
 </a>
 
 <a class="entradas"
-
 href="https://ccmatienzo.com.ar/event/111516-la-fatal-1508"
-
 target="_blank">
 
 15 · AGOSTO<br>
-
 CC MATIENZO
 
 </a>
@@ -483,5 +552,4 @@ CC MATIENZO
 </div>
 
 </body>
-
 </html>
