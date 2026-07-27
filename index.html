@@ -162,18 +162,24 @@ transition:.25s;
 }
 .pieza{
 
-background:#f8f3ea;
+background:#faf7f1;
 
-padding:10px;
+padding:10px 10px 26px;
 
-box-shadow:0 10px 18px rgba(0,0,0,.3);
+border:1px solid rgba(0,0,0,.08);
+
+box-shadow:
+0 8px 18px rgba(0,0,0,.28);
 
 }
+.objeto{
 
-.objeto:hover .pieza{
+transition:transform .25s;
+}
 
-transform:rotate(-3deg) scale(1.05);
+.objeto:hover{
 
+transform:scale(1.04);
 }
 .objeto img{
 
@@ -215,10 +221,14 @@ z-index:5;
 
 /* ------------------------- */
 
+/* ------------------------- */
+
 .fichin{
 
 left:58%;
-top:16%;
+top:12%;
+
+transform:rotate(-8deg);
 
 }
 
@@ -233,7 +243,9 @@ width:120px;
 .libro{
 
 left:76%;
-top:18%;
+top:17%;
+
+transform:rotate(5deg);
 
 }
 
@@ -247,8 +259,10 @@ width:180px;
 
 .tacita{
 
-left:52%;
-top:48%;
+left:50%;
+top:46%;
+
+transform:rotate(7deg);
 
 }
 
@@ -262,8 +276,10 @@ width:130px;
 
 .entrada{
 
-left:78%;
-top:46%;
+left:77%;
+top:41%;
+
+transform:rotate(-9deg);
 
 }
 
@@ -271,16 +287,16 @@ top:46%;
 
 width:170px;
 
-transform:rotate(-8deg);
-
 }
 
 /* ------------------------- */
 
 .llave{
 
-left:28%;
-top:70%;
+left:23%;
+top:73%;
+
+transform:rotate(-12deg);
 
 }
 
@@ -294,8 +310,10 @@ width:180px;
 
 .cenicero{
 
-left:63%;
-top:70%;
+left:58%;
+top:72%;
+
+transform:rotate(6deg);
 
 }
 
@@ -309,8 +327,10 @@ width:150px;
 
 .vhs{
 
-left:83%;
-top:72%;
+left:80%;
+top:76%;
+
+transform:rotate(-4deg);
 
 }
 
