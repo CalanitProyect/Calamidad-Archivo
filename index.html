@@ -139,37 +139,36 @@ position:absolute;
 transition:.25s;
 
 }
-.objeto .pin{
+.pin{
 
-display:block;
+position:absolute;
 
-width:35px;
+width:28px;
 
-height:auto;
+top:-14px;
+
+z-index:30;
+
+pointer-events:none;
 
 filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
 
 }
-
 .pieza{
 
 display:block;
 
-filter:drop-shadow(0 8px 10px rgba(0,0,0,.28));
-
-transition:.25s;
-
-}
-.pieza{
-
 background:#faf7f1;
 
-padding:10px 10px 26px;
+padding:10px 10px 24px;
 
 border:1px solid rgba(0,0,0,.08);
 
-box-shadow:
-0 8px 18px rgba(0,0,0,.28);
+box-shadow:0 8px 18px rgba(0,0,0,.28);
+
+transition:.25s;
+
+transform-origin:top center;
 
 }
 .objeto{
@@ -179,21 +178,7 @@ transition:transform .25s;
 
 .objeto:hover{
 
-transform:scale(1.04);
-}
-.objeto img{
-
-display:block;
-
-filter:drop-shadow(0 10px 12px rgba(0,0,0,.35));
-
-transition:.25s;
-
-}
-
-.objeto:hover img{
-
-transform:scale(1.08) rotate(-4deg);
+transform:translateY(-6px) scale(1.02);
 
 }
 
@@ -232,12 +217,26 @@ transform:rotate(-8deg);
 
 }
 
-.fichin img{
+.fichin{
 
-width:120px;
+left:58%;
+top:12%;
 
 }
 
+.fichin .pieza{
+
+transform:rotate(-8deg);
+
+}
+
+.fichin .pin{
+
+left:20px;
+
+transform:rotate(-15deg);
+
+}
 /* ------------------------- */
 
 .libro{
@@ -245,16 +244,21 @@ width:120px;
 left:76%;
 top:17%;
 
-transform:rotate(5deg);
+}
+
+.libro .pieza{
+
+transform:rotate(6deg);
 
 }
 
-.libro img{
+.libro .pin{
 
-width:180px;
+left:145px;
+
+transform:rotate(18deg);
 
 }
-
 /* ------------------------- */
 
 .tacita{
@@ -262,13 +266,19 @@ width:180px;
 left:50%;
 top:46%;
 
-transform:rotate(7deg);
+}
+
+.tacita .pieza{
+
+transform:rotate(8deg);
 
 }
 
-.tacita img{
+.tacita .pin{
 
-width:130px;
+left:35px;
+
+transform:rotate(-10deg);
 
 }
 
@@ -279,13 +289,19 @@ width:130px;
 left:77%;
 top:41%;
 
-transform:rotate(-9deg);
+}
+
+.entrada .pieza{
+
+transform:rotate(-11deg);
 
 }
 
-.entrada img{
+.entrada .pin{
 
-width:170px;
+left:140px;
+
+transform:rotate(18deg);
 
 }
 
@@ -296,13 +312,19 @@ width:170px;
 left:23%;
 top:73%;
 
+}
+
+.llave .pieza{
+
 transform:rotate(-12deg);
 
 }
 
-.llave img{
+.llave .pin{
 
-width:180px;
+left:25px;
+
+transform:rotate(-18deg);
 
 }
 
@@ -313,30 +335,41 @@ width:180px;
 left:58%;
 top:72%;
 
-transform:rotate(6deg);
+}
+
+.cenicero .pieza{
+
+transform:rotate(5deg);
 
 }
 
-.cenicero img{
+.cenicero .pin{
 
-width:150px;
+left:90px;
+
+transform:rotate(12deg);
 
 }
 
 /* ------------------------- */
-
 .vhs{
 
 left:80%;
 top:76%;
 
+}
+
+.vhs .pieza{
+
 transform:rotate(-4deg);
 
 }
 
-.vhs img{
+.vhs .pin{
 
-width:170px;
+left:135px;
+
+transform:rotate(-8deg);
 
 }
 
