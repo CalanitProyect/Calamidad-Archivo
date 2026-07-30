@@ -313,11 +313,10 @@ transform:rotate(-15deg);
 
 .libro{
 
-left:78%;
-top:22%;
+left:71%;
+top:24%;
 
 }
-
 .libro .polaroid{
 
 --rot:6deg;
@@ -405,8 +404,8 @@ transform:rotate(-18deg);
 
 .cenicero{
 
-left:58%;
-top:70%;
+left:52%;
+top:73%;
 
 }
 
@@ -453,63 +452,51 @@ transform:rotate(-8deg);
 /* NEGATIVO */
 /* --------------------------- */
 .negativo{
+    position:absolute;
 
-position:absolute;
+    left:31%;
+    top:1%;
 
-left:350px;
-top:20px;
-
-z-index:5;
-
+    z-index:4;
 }
 
 .negativo::before{
+    content:"";
 
-content:"";
+    position:absolute;
 
-position:absolute;
+    top:-14px;
+    left:52px;
 
-top:-10px;
-left:12px;
+    width:70px;
+    height:22px;
 
-width:70px;
-height:22px;
+    background:rgba(230,220,170,.55);
 
-background:rgba(232,221,178,.75);
+    transform:rotate(-8deg);
 
-transform:rotate(-10deg);
-
-box-shadow:0 1px 2px rgba(0,0,0,.15);
-
+    z-index:10;
 }
 
 .negativo-img{
+    height:280px;
+    width:auto;
 
-display:block;
+    transform:rotate(98deg); /* o -82deg */
 
-width:90px;
-
-height:auto;
-
-transform:rotate(8deg);
-
-filter:drop-shadow(0 10px 10px rgba(0,0,0,.30));
-
-pointer-events:none;
-
+    filter:drop-shadow(0 10px 12px rgba(0,0,0,.35));
 }
 
 .arbol{
 
-left:6%;
-top:44%;
+left:5%;
+top:36%;
 
 }
 
 .arbol .polaroid{
 
 --rot:-11deg;
-transform:rotate(var(--rot));
 
 }
 .arbol .pin{
@@ -574,11 +561,10 @@ left:90px;
 
 .cinefoto{
 
-left:72%;
-top:10%;
+left:62%;
+top:8%;
 
 }
-
 .cinefoto .polaroid{
 
 --rot:10deg;
