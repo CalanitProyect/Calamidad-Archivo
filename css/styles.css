@@ -1,342 +1,143 @@
-/* ==========================================
-   RESET & GLOBAL
-========================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo Calamidad</title>
 
-body {
-    background: #ece5d8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: auto;
-    font-family: 'Special Elite', serif;
-}
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Special+Elite&display=swap" rel="stylesheet">
 
-/* ==========================================
-   TABLERO PRINCIPAL
-========================================== */
-.tablero {
-    position: relative;
-    width: min(95vw, 1300px);
-    height: 800px;
-    margin: 20px auto;
-    overflow: hidden;
-    background-color: #5d4037;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
-.corcho {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
+    <main class="tablero">
 
-.expediente,
-.objeto,
-.entradas {
-    z-index: 2;
-}
+        <!-- EXPEDIENTE PRINCIPAL -->
+        <article class="expediente">
+            <div class="cinta"></div>
+            <h1>ARCHIVO CALAMIDAD</h1>
+            <p>
+                Durante la restauración de una vivienda antigua fueron recuperadas siete cintas VHS junto con correspondencia y objetos personales.
+                <br><br>
+                La identidad de las personas involucradas permanece incompleta.
+            </p>
+        </article>
 
-/* ==========================================
-   EXPEDIENTE (Muesca/Nota Izquierda)
-========================================== */
-.expediente {
-    position: absolute;
-    left: 5%;
-    top: 6%;
-    width: 28%;
-    background: #f8f3ea;
-    padding: 35px 30px;
-    transform: rotate(-1deg);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.30);
-    z-index: 5;
-}
+        <!-- OBJETOS DECORATIVOS SECUNDARIOS -->
+        <div class="objeto negativo">
+            <img class="negativo-img" src="img/malditosnegativos.png" alt="Negativo fotográfico">
+        </div>
 
-.expediente h1 {
-    letter-spacing: 4px;
-    font-size: 26px;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
+        <div class="objeto arbol">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/arboltallado.jpg" alt="Árbol tallado">
+            </div>
+        </div>
 
-.expediente p {
-    line-height: 1.6;
-    font-size: 14px;
-}
+        <div class="objeto beso1">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/besopermanencia.jpg" alt="Beso permanencia">
+            </div>
+        </div>
 
-.cinta {
-    position: absolute;
-    width: 110px;
-    height: 32px;
-    background: rgba(235, 220, 170, 0.65);
-    top: -12px;
-    left: 35%;
-    transform: rotate(2deg);
-}
+        <div class="objeto beso2">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/besoraspando.jpg" alt="Beso raspando">
+            </div>
+        </div>
 
-/* ==========================================
-   POLAROIDS & OBJETOS (ESTILOS BASE)
-========================================== */
-.objeto {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.25s ease;
-}
+        <div class="objeto casamiento">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/casamiento.jpg" alt="Foto de casamiento">
+            </div>
+        </div>
 
-.pin {
-    width: 26px;
-    height: auto;
-    margin-bottom: -13px;
-    z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-    pointer-events: none;
-}
+        <div class="objeto cinefoto">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/patastangueras.jpg" alt="Patas tangueras">
+            </div>
+        </div>
 
-.polaroid {
-    background: #faf7f1;
-    padding: 8px 8px 28px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
-}
+        <div class="objeto slayfoto">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/slay.jpg" alt="Fotografía decorativa">
+            </div>
+        </div>
 
-.foto {
-    display: block;
-    width: 100%;
-    height: auto;
-}
+        <!-- EXPEDIENTES / POLAROIDS INTERACTIVAS (CANCIONES) -->
+        <a href="augurio.html" class="objeto fichin">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/fichinprovisorio.jpeg" alt="Fichín">
+                <div class="titulo-polaroid">01 · Augurio</div>
+            </div>
+        </a>
 
-.titulo-polaroid {
-    margin-top: 8px;
-    text-align: center;
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: 20px;
-    color: #3d3d3d;
-    line-height: 1;
-    user-select: none;
-}
+        <a href="exhalada.html" class="objeto tacita">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/tacitaprovisoria.jpeg" alt="Tacita">
+                <div class="titulo-polaroid">02 · Exhalada</div>
+            </div>
+        </a>
 
-/* Efecto Hover */
-.objeto:hover {
-    z-index: 20 !important;
-    transform: scale(1.05) translateY(-4px) !important;
-}
+        <a href="raspandoelfondo.html" class="objeto cenicero">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/ceniceroprovisorio.jpg" alt="Cenicero">
+                <div class="titulo-polaroid">03 · Raspando el fondo</div>
+            </div>
+        </a>
 
-/* ==========================================
-   POSICIONAMIENTO EXA-CTO (SEGÚN REFERENCIA)
-========================================== */
+        <a href="olvido.html" class="objeto entrada">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/ticketprovisorio.jpg" alt="Entrada o ticket">
+                <div class="titulo-polaroid">04 · Olvido</div>
+            </div>
+        </a>
 
-/* 1. NEGATIVO (Bajo el expediente) */
-.negativo {
-    left: 7%;
-    top: 48%;
-    z-index: 3;
-}
+        <a href="permanencia.html" class="objeto libro">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/libroverdeprovisorio.jpeg" alt="Libro verde">
+                <div class="titulo-polaroid">05 · Permanencia</div>
+            </div>
+        </a>
 
-.negativo-img {
-    height: 340px;
-    width: auto;
-    transform: rotate(4deg);
-    filter: drop-shadow(4px 6px 8px rgba(0, 0, 0, 0.4));
-}
+        <a href="mea-culpa.html" class="objeto llave">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/llaveprovisoria.jpeg" alt="Llave antigua">
+                <div class="titulo-polaroid">06 · Mea Culpa</div>
+            </div>
+        </a>
 
-/* 2. FOTO ÁRBOL */
-.arbol {
-    left: 17%;
-    top: 52%;
-    transform: rotate(-6deg);
-    z-index: 6;
-}
-.arbol .polaroid { width: 140px; }
+        <a href="letargia.html" class="objeto vhs">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <div class="polaroid">
+                <img class="foto" src="img/vhsprovisorio.jpg" alt="Cinta VHS">
+                <div class="titulo-polaroid">07 · Letargia</div>
+            </div>
+        </a>
 
-/* 3. MEA CULPA (Reloj) */
-.llave {
-    left: 25%;
-    top: 74%;
-    transform: rotate(3deg);
-    z-index: 7;
-}
-.llave .polaroid { width: 145px; }
+        <!-- BOTÓN ENTRADAS / EVENTO -->
+        <a class="entradas" href="https://ccmatienzo.com.ar/event/111516-la-fatal-1508" target="_blank" rel="noopener noreferrer">
+            15 · AGOSTO<br>CC MATIENZO
+        </a>
 
-/* ------------------------------------------
-   COLUMNA CENTRO - ARRIBA
------------------------------------------- */
-.cinefoto { /* 01 · Augurio */
-    left: 38%;
-    top: 7%;
-    transform: rotate(-4deg);
-}
-.cinefoto .polaroid { width: 155px; }
+    </main>
 
-.libro { /* 05 · Permanencia */
-    left: 50%;
-    top: 7%;
-    transform: rotate(2deg);
-}
-.libro .polaroid { width: 155px; }
-
-/* ------------------------------------------
-   COLUMNA CENTRO - MEDIO
------------------------------------------- */
-.tacita { /* 02 · Exhalada */
-    left: 37%;
-    top: 39%;
-    transform: rotate(1deg);
-}
-.tacita .polaroid { width: 145px; }
-
-.cenicero { /* 03 · Raspando el fondo */
-    left: 49%;
-    top: 39%;
-    transform: rotate(-2deg);
-}
-.cenicero .polaroid { width: 145px; }
-
-/* ------------------------------------------
-   COLUMNA CENTRO - ABAJO
------------------------------------------- */
-.casamiento { /* Foto dos chicas */
-    left: 39%;
-    top: 70%;
-    transform: rotate(-3deg);
-}
-.casamiento .polaroid { width: 175px; }
-
-/* ------------------------------------------
-   COLUMNA DERECHA - ALTA
------------------------------------------- */
-.entrada { /* 04 · Olvido (Foto alta) */
-    left: 63%;
-    top: 6%;
-    transform: rotate(-8deg);
-    z-index: 8;
-}
-.entrada .polaroid { width: 170px; }
-
-.vhs { /* 07 · Letargia */
-    left: 77%;
-    top: 30%;
-    transform: rotate(3deg);
-}
-.vhs .polaroid { width: 160px; }
-
-/* ------------------------------------------
-   COLUMNA DERECHA - INFERIOR
------------------------------------------- */
-.beso1 {
-    left: 57%;
-    top: 70%;
-    transform: rotate(4deg);
-}
-.beso1 .polaroid { width: 135px; }
-
-.beso2 {
-    left: 68%;
-    top: 66%;
-    transform: rotate(-5deg);
-}
-.beso2 .polaroid { width: 140px; }
-
-.slayfoto {
-    left: 79%;
-    top: 70%;
-    transform: rotate(8deg);
-}
-.slayfoto .polaroid { width: 135px; }
-
-.fichin {
-    display: none; /* Oculto ya que se reemplaza visualmente por las posiciones ajustadas */
-}
-
-/* ==========================================
-   BOTÓN ENTRADAS
-========================================== */
-.entradas {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    background: #f8f3ea;
-    padding: 12px 20px;
-    border: 1px solid #999;
-    text-decoration: none;
-    color: #222;
-    font-size: 13px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
-    transform: rotate(2deg);
-    transition: 0.25s;
-    z-index: 30;
-}
-
-.entradas:hover {
-    transform: rotate(0deg) scale(1.05);
-}
-
-/* ==========================================
-   RESPONSIVE (MÓVIL)
-========================================== */
-@media (max-width: 900px) {
-    body {
-        display: block;
-        overflow-x: hidden;
-    }
-
-    .tablero {
-        width: 100%;
-        max-width: 430px;
-        height: 3350px;
-        margin: auto;
-        overflow: visible;
-    }
-
-    .corcho {
-        position: absolute;
-        inset: 0;
-        object-fit: cover;
-    }
-
-    .expediente {
-        left: 50%;
-        top: 40px;
-        width: 88%;
-        max-width: 340px;
-        transform: translateX(-50%) rotate(-2deg);
-    }
-
-    .negativo { left: 220px; top: 240px; }
-    .negativo-img { height: 240px; width: auto; }
-
-    /* Reposicionamiento vertical para pantallas pequeñas */
-    .cinefoto { left: 185px; top: 520px; }
-    .libro { left: 65px; top: 850px; }
-    .tacita { left: 190px; top: 1180px; }
-    .entrada { left: 70px; top: 1510px; }
-    .llave { left: 190px; top: 1850px; }
-    .cenicero { left: 60px; top: 2200px; }
-    .vhs { left: 185px; top: 2550px; }
-
-    .arbol { left: 15px; top: 470px; }
-    .casamiento { left: 175px; top: 1010px; }
-    .beso1 { left: 20px; top: 1680px; }
-    .beso2 { left: 225px; top: 2040px; }
-    .slayfoto { left: 185px; top: 2880px; }
-
-    .entradas {
-        left: 50%;
-        right: auto;
-        bottom: 60px;
-        transform: translateX(-50%);
-    }
-
-    .polaroid {
-        width: 170px !important;
-    }
-}
+</body>
+</html>
