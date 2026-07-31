@@ -34,7 +34,7 @@ body {
     border: 1px solid #9d927f;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transform: rotate(-0.3deg);
-    overflow: hidden;
+    overflow: hidden; /* Evita que los elementos se salgan de la hoja */
 }
 
 /* Textura de papel envejecido */
@@ -48,10 +48,10 @@ body {
     pointer-events: none;
 }
 
-/* Para que el texto quede por encima de la textura */
+/* Asegura que el contenido esté por encima del fondo */
 .archivo > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* ==========================================
@@ -59,7 +59,7 @@ body {
 ========================================== */
 .encabezado-archivo {
     margin-bottom: 30px;
-    border-bottom: 1px stroke rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     padding-bottom: 15px;
 }
 
@@ -91,6 +91,25 @@ h1 {
     margin-top: 25px;
     font-style: italic;
     font-size: 1.1em;
+}
+
+.grito {
+    font-size: 1.18em;
+    margin: 38px 0;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   TEXTO FRAGMENTADO / PERDIDO
+========================================== */
+.perdido {
+    opacity: 0.5;
+    font-style: italic;
+    color: #666;
+    letter-spacing: 1px;
+    margin: 12px 0;
+    display: block;
 }
 
 /* ==========================================
@@ -129,40 +148,25 @@ h1 {
 }
 
 /* ==========================================
-   RESPONSIVE (MÓVIL)
-========================================== */
-@media (max-width: 600px) {
-    body {
-        padding: 20px 10px;
-    }
-    
-    .archivo {
-        padding: 30px 20px;
-        transform: rotate(0deg);
-    }
-
-    h1 {
-        font-size: 1.8em;
-    }
-}/* ==========================================
-   EFECTOS ESPECIALES Y ELEMENTOS EXTRA
+   EFECTOS ESPECIALES Y OVERLAYS
 ========================================== */
 .cenicero-overlay {
     position: absolute;
-    width: 230px;
+    width: min(230px, 35vw);
     right: -10px;
-    top: 620px;
+    bottom: 10%;
     transform: rotate(-12deg);
-    z-index: 10;
+    z-index: 1;
     filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35));
+    pointer-events: none;
 }
 
 .quemadura {
     position: absolute;
-    width: 140px;
-    height: 140px;
-    right: 145px;
-    top: 720px;
+    width: min(140px, 25vw);
+    height: min(140px, 25vw);
+    right: 10%;
+    bottom: 15%;
     border-radius: 50%;
     background: radial-gradient(
         circle,
@@ -174,27 +178,16 @@ h1 {
     mix-blend-mode: multiply;
     opacity: 0.55;
     pointer-events: none;
-    z-index: 5;
+    z-index: 1;
 }
 
-.grito {
-    font-size: 1.18em;
-    margin: 38px 0;
-    letter-spacing: 1px;
-    font-weight: bold;
-}
-/* ==========================================
-   EFECTO: MANCHA DE VINO
-========================================== */
 .mancha-vino {
     position: absolute;
-    width: 170px;
-    height: 170px;
-    right: 80px;
-    top: 650px;
+    width: min(170px, 30vw);
+    height: min(170px, 30vw);
+    right: 5%;
+    bottom: 20%;
     border-radius: 50%;
-    
-    /* Cerco de copa de vino en tono borravino / púrpura oscuro envejecido */
     background: radial-gradient(
         circle,
         transparent 50%,
@@ -203,21 +196,43 @@ h1 {
         rgba(100, 30, 45, 0.15) 85%,
         transparent 92%
     );
-    
     filter: blur(1px);
     mix-blend-mode: multiply;
-    opacity: 0.7;
+    opacity: 0.6;
     pointer-events: none;
-    z-index: 5;
-    transform: rotate(15deg) scaleX(1.08); /* Un toque ovalado natural */
+    z-index: 1;
+    transform: rotate(15deg) scaleX(1.08);
 }
+
+/* Control general de imágenes insertadas dentro del archivo */
+.archivo img,
+.ticket,
+.libro {
+    max-width: 100%;
+    height: auto;
+}
+
 /* ==========================================
-   TEXTO FRAGMENTADO / PERDIDO
+   RESPONSIVE (MÓVIL & PANTALLAS PEQUEÑAS)
 ========================================== */
-.perdido {
-    opacity: 0.5;
-    font-style: italic;
-    color: #666;
-    letter-spacing: 1px;
-    margin: 12px 0;
+@media (max-width: 600px) {
+    body {
+        padding: 15px 8px;
+    }
+    
+    .archivo {
+        padding: 30px 20px;
+        transform: rotate(0deg);
+    }
+
+    h1 {
+        font-size: 1.7em;
+    }
+
+    /* Suavizado de overlays en móviles para lectura limpia */
+    .quemadura,
+    .mancha-vino,
+    .cenicero-overlay {
+        opacity: 0.35;
+    }
 }

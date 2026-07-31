@@ -1,5 +1,5 @@
 /* ==========================================
-   RESET & GLOBAL
+   RESET & BASE
 ========================================== */
 * {
     margin: 0;
@@ -8,335 +8,222 @@
 }
 
 body {
-    background: #ece5d8;
+    background: #111111;
+    color: #2b2b2b;
+    font-family: 'Special Elite', serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow: auto;
-    font-family: 'Special Elite', serif;
+    padding: 20px 10px;
 }
 
 /* ==========================================
-   TABLERO PRINCIPAL
+   TABLERO / CORCHO (CONTENEDOR PRINCIPAL)
 ========================================== */
 .tablero {
     position: relative;
-    width: min(95vw, 1300px);
-    height: 800px;
-    margin: 20px auto;
-    overflow: hidden;
-    background-color: #5d4037;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.corcho {
-    position: absolute;
-    inset: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
+    max-width: 1200px;
+    min-height: 85vh;
+    background: url('../img/corcho.jpg') #8c6747 center/cover repeat;
+    border: 12px solid #3d2612;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.5);
+    
+    /* Distribuimos las tarjetas sin solapamientos forzados */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px 25px;
+    padding: 50px 30px;
+    overflow: hidden;
 }
 
-.expediente,
-.objeto,
-.entradas {
-    z-index: 2;
+/* Ocultamos la etiqueta img de corcho si hubiere quedado en el HTML */
+.corcho {
+    display: none;
 }
 
 /* ==========================================
-   EXPEDIENTE (Muesca/Nota Izquierda)
+   EXPEDIENTE PRINCIPAL (INTRODUCCIÓN)
 ========================================== */
 .expediente {
-    position: absolute;
-    left: 5%;
-    top: 6%;
-    width: 28%;
-    background: #f8f3ea;
-    padding: 35px 30px;
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: #f3ead7;
+    padding: 30px 25px;
+    border: 1px solid #9d927f;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     transform: rotate(-1deg);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.30);
-    z-index: 5;
+    margin-bottom: 10px;
+    z-index: 2;
 }
 
 .expediente h1 {
-    letter-spacing: 4px;
-    font-size: 26px;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    font-size: 1.6em;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-bottom: 8px;
 }
 
 .expediente p {
+    font-size: 0.9em;
     line-height: 1.6;
-    font-size: 14px;
 }
 
 .cinta {
     position: absolute;
-    width: 110px;
-    height: 32px;
-    background: rgba(235, 220, 170, 0.65);
     top: -12px;
     left: 35%;
-    transform: rotate(2deg);
+    width: 100px;
+    height: 25px;
+    background: rgba(225, 215, 190, 0.65);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transform: rotate(-2deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================
-   POLAROIDS & OBJETOS (ESTILOS BASE)
+   ESTILO DE POLAROIDS Y OBJETOS
 ========================================== */
 .objeto {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.25s ease;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), z-index 0s;
+    z-index: 2;
 }
 
-.pin {
-    width: 26px;
-    height: auto;
-    margin-bottom: -13px;
-    z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-    pointer-events: none;
-}
-
+/* Marco Polaroid */
 .polaroid {
-    background: #faf7f1;
-    padding: 8px 8px 28px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+    background: #fdfbf7;
+    padding: 10px 10px 15px 10px;
+    border: 1px solid #d4ceb8;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 180px;
+    text-align: center;
 }
 
-.foto {
-    display: block;
+.polaroid .foto {
     width: 100%;
-    height: auto;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.12) contrast(1.05);
 }
 
 .titulo-polaroid {
-    margin-top: 8px;
-    text-align: center;
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: 20px;
-    color: #3d3d3d;
-    line-height: 1;
-    user-select: none;
+    font-size: 0.8em;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #222;
 }
 
-/* Efecto Hover */
-.objeto:hover {
-    z-index: 20 !important;
-    transform: scale(1.05) translateY(-4px) !important;
-}
-
-/* ==========================================
-   POSICIONAMIENTO EXA-CTO (SEGÚN REFERENCIA)
-========================================== */
-
-/* 1. NEGATIVO (Bajo el expediente) */
-.negativo {
-    left: 7%;
-    top: 48%;
-    z-index: 3;
-}
-
-.negativo-img {
-    height: 340px;
-    width: auto;
-    transform: rotate(4deg);
-    filter: drop-shadow(4px 6px 8px rgba(0, 0, 0, 0.4));
-}
-
-/* 2. FOTO ÁRBOL */
-.arbol {
-    left: 17%;
-    top: 52%;
-    transform: rotate(-6deg);
-    z-index: 6;
-}
-.arbol .polaroid { width: 140px; }
-
-/* 3. MEA CULPA (Reloj) */
-.llave {
-    left: 25%;
-    top: 74%;
-    transform: rotate(3deg);
-    z-index: 7;
-}
-.llave .polaroid { width: 145px; }
-
-/* ------------------------------------------
-   COLUMNA CENTRO - ARRIBA
------------------------------------------- */
-.cinefoto { /* 01 · Augurio */
-    left: 38%;
-    top: 7%;
-    transform: rotate(-4deg);
-}
-.cinefoto .polaroid { width: 155px; }
-
-.libro { /* 05 · Permanencia */
+/* Chinche de fijación */
+.pin {
+    position: absolute;
+    top: -10px;
     left: 50%;
-    top: 7%;
-    transform: rotate(2deg);
-}
-.libro .polaroid { width: 155px; }
-
-/* ------------------------------------------
-   COLUMNA CENTRO - MEDIO
------------------------------------------- */
-.tacita { /* 02 · Exhalada */
-    left: 37%;
-    top: 39%;
-    transform: rotate(1deg);
-}
-.tacita .polaroid { width: 145px; }
-
-.cenicero { /* 03 · Raspando el fondo */
-    left: 49%;
-    top: 39%;
-    transform: rotate(-2deg);
-}
-.cenicero .polaroid { width: 145px; }
-
-/* ------------------------------------------
-   COLUMNA CENTRO - ABAJO
------------------------------------------- */
-.casamiento { /* Foto dos chicas */
-    left: 39%;
-    top: 70%;
-    transform: rotate(-3deg);
-}
-.casamiento .polaroid { width: 175px; }
-
-/* ------------------------------------------
-   COLUMNA DERECHA - ALTA
------------------------------------------- */
-.entrada { /* 04 · Olvido (Foto alta) */
-    left: 63%;
-    top: 6%;
-    transform: rotate(-8deg);
-    z-index: 8;
-}
-.entrada .polaroid { width: 170px; }
-
-.vhs { /* 07 · Letargia */
-    left: 77%;
-    top: 30%;
-    transform: rotate(3deg);
-}
-.vhs .polaroid { width: 160px; }
-
-/* ------------------------------------------
-   COLUMNA DERECHA - INFERIOR
------------------------------------------- */
-.beso1 {
-    left: 57%;
-    top: 70%;
-    transform: rotate(4deg);
-}
-.beso1 .polaroid { width: 135px; }
-
-.beso2 {
-    left: 68%;
-    top: 66%;
-    transform: rotate(-5deg);
-}
-.beso2 .polaroid { width: 140px; }
-
-.slayfoto {
-    left: 79%;
-    top: 70%;
-    transform: rotate(8deg);
-}
-.slayfoto .polaroid { width: 135px; }
-
-.fichin {
-    display: none; /* Oculto ya que se reemplaza visualmente por las posiciones ajustadas */
+    transform: translateX(-50%);
+    width: 22px;
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.4));
 }
 
 /* ==========================================
-   BOTÓN ENTRADAS
+   EFECTO INTERACTIVO (HOVER)
+========================================== */
+a.objeto:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 50 !important;
+}
+
+a.objeto:hover .polaroid {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   ROTACIONES INDIVIDUALES (DESORDEN ORGÁNICO)
+========================================== */
+.negativo { transform: rotate(-6deg); width: 160px; }
+.negativo-img { width: 100%; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); }
+
+.arbol { transform: rotate(4deg); }
+.beso1 { transform: rotate(-3deg); }
+.beso2 { transform: rotate(5deg); }
+.casamiento { transform: rotate(-2deg); }
+.cinefoto { transform: rotate(3deg); }
+.slayfoto { transform: rotate(-5deg); }
+
+.fichin { transform: rotate(2deg); }
+.tacita { transform: rotate(-4deg); }
+.cenicero { transform: rotate(3deg); }
+.entrada { transform: rotate(-2deg); }
+.libro { transform: rotate(5deg); }
+.llave { transform: rotate(-3deg); }
+.vhs { transform: rotate(4deg); }
+
+/* ==========================================
+   BOTÓN DE ENTRADAS / EVENTO
 ========================================== */
 .entradas {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    background: #f8f3ea;
-    padding: 12px 20px;
-    border: 1px solid #999;
+    display: block;
+    background: #8b0000;
+    color: #f3ead7;
     text-decoration: none;
-    color: #222;
-    font-size: 13px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
-    transform: rotate(2deg);
-    transition: 0.25s;
-    z-index: 30;
+    text-align: center;
+    padding: 14px 22px;
+    font-weight: bold;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    border: 2px dashed #f3ead7;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transform: rotate(-1deg);
+    transition: all 0.2s ease;
+    align-self: center;
+    margin-top: 10px;
 }
 
 .entradas:hover {
-    transform: rotate(0deg) scale(1.05);
+    background: #a00000;
+    transform: scale(1.05) rotate(0deg);
 }
 
 /* ==========================================
-   RESPONSIVE (MÓVIL)
+   RESPONSIVE (DISPOSITIVOS MÓVILES)
 ========================================== */
-@media (max-width: 900px) {
-    body {
-        display: block;
-        overflow-x: hidden;
-    }
-
+@media (max-width: 600px) {
     .tablero {
-        width: 100%;
-        max-width: 430px;
-        height: 3350px;
-        margin: auto;
-        overflow: visible;
+        padding: 25px 10px;
+        gap: 20px 10px;
+        border-width: 6px;
     }
-
-    .corcho {
-        position: absolute;
-        inset: 0;
-        object-fit: cover;
-    }
-
-    .expediente {
-        left: 50%;
-        top: 40px;
-        width: 88%;
-        max-width: 340px;
-        transform: translateX(-50%) rotate(-2deg);
-    }
-
-    .negativo { left: 220px; top: 240px; }
-    .negativo-img { height: 240px; width: auto; }
-
-    /* Reposicionamiento vertical para pantallas pequeñas */
-    .cinefoto { left: 185px; top: 520px; }
-    .libro { left: 65px; top: 850px; }
-    .tacita { left: 190px; top: 1180px; }
-    .entrada { left: 70px; top: 1510px; }
-    .llave { left: 190px; top: 1850px; }
-    .cenicero { left: 60px; top: 2200px; }
-    .vhs { left: 185px; top: 2550px; }
-
-    .arbol { left: 15px; top: 470px; }
-    .casamiento { left: 175px; top: 1010px; }
-    .beso1 { left: 20px; top: 1680px; }
-    .beso2 { left: 225px; top: 2040px; }
-    .slayfoto { left: 185px; top: 2880px; }
-
-    .entradas {
-        left: 50%;
-        right: auto;
-        bottom: 60px;
-        transform: translateX(-50%);
-    }
-
+    
     .polaroid {
-        width: 170px !important;
+        width: 140px;
+        padding: 8px 8px 12px 8px;
+    }
+
+    .polaroid .foto {
+        height: 120px;
+    }
+
+    .titulo-polaroid {
+        font-size: 0.75em;
+    }
+    
+    .expediente {
+        padding: 20px 15px;
+    }
+
+    .negativo {
+        width: 130px;
     }
 }
