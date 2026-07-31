@@ -641,112 +641,147 @@ left:45px;
 
     transform:rotate(0deg) scale(1.05);
 
-}/* ========================= */
+/* ========================= */
 /* RESPONSIVE */
 /* ========================= */
 
-@media (max-width: 900px){
+@media (max-width:900px){
 
 body{
-
-display:block;
-
-overflow-x:hidden;
-
+    display:block;
+    overflow-x:hidden;
 }
 
 .tablero{
-
-width:100%;
-height:2700px;
-
-max-width:430px;
-
-margin:auto;
-
-overflow:visible;
-
+    width:100%;
+    max-width:430px;
+    height:3350px;
+    margin:auto;
+    overflow:visible;
 }
 
 .corcho{
-
-position:absolute;
-
-inset:0;
-
-object-fit:cover;
-
+    position:absolute;
+    inset:0;
+    object-fit:cover;
 }
+
+/* ========================= */
+/* EXPEDIENTE */
+/* ========================= */
 
 .expediente{
-
-left:50%;
-
-top:40px;
-
-transform:translateX(-50%) rotate(-2deg);
-
-width:88%;
-
-max-width:340px;
-
+    left:50%;
+    top:40px;
+    width:88%;
+    max-width:340px;
+    transform:translateX(-50%) rotate(-2deg);
 }
 
-.entradas{
+/* ========================= */
+/* NEGATIVO */
+/* ========================= */
 
-left:50%;
-
-right:auto;
-
-bottom:50px;
-
-transform:translateX(-50%) rotate(-2deg);
-
+.negativo{
+    left:220px;
+    top:240px;
 }
 
-@media (max-width:900px){
+.negativo-img{
+    height:240px;
+    width:auto;
+}
+
+/* ========================= */
+/* POLAROIDS PRINCIPALES */
+/* ========================= */
 
 .fichin{
-left:180px;
-top:360px;
+    left:185px;
+    top:520px;
 }
 
 .libro{
-left:70px;
-top:660px;
+    left:65px;
+    top:850px;
 }
 
 .tacita{
-left:190px;
-top:980px;
+    left:190px;
+    top:1180px;
 }
 
 .entrada{
-left:80px;
-top:1310px;
+    left:70px;
+    top:1510px;
 }
 
 .llave{
-left:190px;
-top:1650px;
+    left:190px;
+    top:1850px;
 }
 
 .cenicero{
-left:60px;
-top:1980px;
+    left:60px;
+    top:2200px;
 }
 
 .vhs{
-left:180px;
-top:2320px;
+    left:185px;
+    top:2550px;
 }
 
-}   /* ← ESTA LLAVE FALTA */
+/* ========================= */
+/* DECORATIVAS */
+/* ========================= */
 
-@media (max-width:900px){
+.arbol{
+    left:15px;
+    top:470px;
+}
+
+.cinefoto{
+    left:225px;
+    top:350px;
+}
+
+.casamiento{
+    left:175px;
+    top:1010px;
+}
+
+.beso1{
+    left:20px;
+    top:1680px;
+}
+
+.beso2{
+    left:225px;
+    top:2040px;
+}
+
+.slayfoto{
+    left:185px;
+    top:2880px;
+}
+
+/* ========================= */
+/* BOTON */
+/* ========================= */
+
+.entradas{
+    left:50%;
+    right:auto;
+    bottom:60px;
+    transform:translateX(-50%);
+}
+
+/* ========================= */
+/* TAMAÑO FOTOS */
+/* ========================= */
 
 .foto{
-width:170px !important;
+    width:170px !important;
 }
 
 }
