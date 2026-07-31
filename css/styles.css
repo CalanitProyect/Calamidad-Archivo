@@ -1,0 +1,298 @@
+/* ==========================================
+   RESET & GLOBAL
+========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ece5d8;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: auto;
+    font-family: 'Special Elite', serif;
+}
+
+/* ==========================================
+   TABLERO PRINCIPAL
+========================================== */
+.tablero {
+    position: relative;
+    width: min(95vw, 1200px);
+    height: 1180px;
+    overflow: hidden;
+}
+
+.corcho {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: -1;
+}
+
+.expediente,
+.objeto,
+.entradas {
+    z-index: 2;
+}
+
+/* ==========================================
+   EXPEDIENTE
+========================================== */
+.expediente {
+    position: absolute;
+    left: 70px;
+    top: 50px;
+    width: 390px;
+    background: #f8f3ea;
+    padding: 35px;
+    transform: rotate(-2deg);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.30);
+}
+
+.expediente h1 {
+    letter-spacing: 5px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.expediente p {
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.cinta {
+    position: absolute;
+    width: 120px;
+    height: 35px;
+    background: rgba(235, 220, 170, 0.55);
+    top: -10px;
+    left: 120px;
+    transform: rotate(3deg);
+}
+
+/* ==========================================
+   POLAROIDS & OBJETOS
+========================================== */
+.objeto {
+    position: absolute;
+    transition: transform 0.25s;
+}
+
+.pin {
+    position: absolute;
+    width: 28px;
+    top: 0;
+    z-index: 30;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+}
+
+.polaroid {
+    display: inline-block;
+    background: #faf7f1;
+    padding: 10px 10px 36px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+    margin-top: 8px;
+    transition: 0.25s;
+}
+
+.foto {
+    display: block;
+    height: auto;
+}
+
+.titulo-polaroid {
+    margin-top: 12px;
+    text-align: center;
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 25px;
+    color: #3d3d3d;
+    line-height: 1;
+    user-select: none;
+}
+
+/* Hover en Objetos */
+.objeto:hover .polaroid {
+    transform: translateY(-6px) rotate(var(--rot)) scale(1.04);
+}
+
+/* Tamaños de Fotos */
+.fichin .foto { width: 120px; }
+.libro .foto { width: 180px; }
+.tacita .foto { width: 130px; }
+.entrada .foto { width: 170px; }
+.llave .foto { width: 180px; }
+.cenicero .foto { width: 150px; }
+.vhs .foto { width: 170px; }
+.arbol .foto { width: 150px; }
+.beso1 .foto { width: 165px; }
+.beso2 .foto { width: 155px; }
+.casamiento .foto { width: 175px; }
+.cinefoto .foto { width: 145px; }
+.slayfoto .foto { width: 160px; }
+
+/* ==========================================
+   POSICIONAMIENTO INDIVIDUAL (DESKTOP)
+========================================== */
+.fichin { left: 58%; top: 9%; }
+.fichin .polaroid { --rot: -8deg; transform: rotate(var(--rot)); }
+.fichin .pin { left: 20px; transform: rotate(-15deg); }
+
+.libro { left: 70%; top: 12%; }
+.libro .polaroid { --rot: 6deg; transform: rotate(var(--rot)); }
+.libro .pin { left: 145px; transform: rotate(18deg); }
+
+.tacita { left: 50%; top: 56%; }
+.tacita .polaroid { --rot: 8deg; transform: rotate(var(--rot)); }
+.tacita .pin { left: 35px; transform: rotate(-10deg); }
+
+.entrada { left: 82%; top: 27%; }
+.entrada .polaroid { --rot: -11deg; transform: rotate(var(--rot)); }
+.entrada .pin { left: 140px; transform: rotate(18deg); }
+
+.llave { left: 23%; top: 88%; }
+.llave .polaroid { --rot: -12deg; transform: rotate(var(--rot)); }
+.llave .pin { left: 25px; transform: rotate(-18deg); }
+
+.cenicero { left: 66%; top: 57%; }
+.cenicero .polaroid { --rot: 5deg; transform: rotate(var(--rot)); }
+.cenicero .pin { left: 90px; transform: rotate(12deg); }
+
+.vhs { left: 88%; top: 53%; }
+.vhs .polaroid { --rot: -4deg; transform: rotate(var(--rot)); }
+.vhs .pin { left: 135px; transform: rotate(-8deg); }
+
+.negativo { left: 10%; top: 36%; z-index: 1; }
+.negativo::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 52px;
+    width: 70px;
+    height: 22px;
+    background: rgba(230, 220, 170, 0.55);
+    transform: rotate(-8deg);
+    z-index: 10;
+}
+.negativo-img {
+    height: 144px;
+    width: auto;
+    transform: rotate(98deg);
+    filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.35));
+}
+
+.arbol { left: 16%; top: 50%; }
+.arbol .polaroid { --rot: -8deg; transform: rotate(var(--rot)); }
+.arbol .pin { left: 100px; }
+
+.beso1 { left: 70%; top: 82%; }
+.beso1 .polaroid { --rot: 9deg; transform: rotate(var(--rot)); }
+.beso1 .pin { left: 55px; }
+
+.casamiento { left: 48%; top: 83%; }
+.casamiento .polaroid { --rot: -6deg; transform: rotate(var(--rot)); }
+.casamiento .pin { left: 90px; }
+
+.cinefoto { left: 61%; top: 8%; }
+.cinefoto .polaroid { --rot: 8deg; }
+.cinefoto .pin { left: 100px; }
+
+.beso2 { left: 90%; top: 90%; }
+.beso2 .polaroid { --rot: -7deg; transform: rotate(var(--rot)); }
+.beso2 .pin { left: 110px; }
+
+.slayfoto { left: 76%; top: 83%; }
+.slayfoto .polaroid { --rot: -12deg; transform: rotate(var(--rot)); }
+.slayfoto .pin { left: 45px; }
+
+/* ==========================================
+   BOTÓN ENTRADAS
+========================================== */
+.entradas {
+    position: absolute;
+    right: 60px;
+    bottom: 40px;
+    background: #f8f3ea;
+    padding: 18px 28px;
+    border: 1px solid #999;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+    transform: rotate(2deg);
+    transition: 0.25s;
+}
+
+.entradas:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* ==========================================
+   RESPONSIVE (MÓVIL)
+========================================== */
+@media (max-width: 900px) {
+    body {
+        display: block;
+        overflow-x: hidden;
+    }
+
+    .tablero {
+        width: 100%;
+        max-width: 430px;
+        height: 3350px;
+        margin: auto;
+        overflow: visible;
+    }
+
+    .corcho {
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+    }
+
+    .expediente {
+        left: 50%;
+        top: 40px;
+        width: 88%;
+        max-width: 340px;
+        transform: translateX(-50%) rotate(-2deg);
+    }
+
+    .negativo { left: 220px; top: 240px; }
+    .negativo-img { height: 240px; width: auto; }
+
+    /* Polaroids principales */
+    .fichin { left: 185px; top: 520px; }
+    .libro { left: 65px; top: 850px; }
+    .tacita { left: 190px; top: 1180px; }
+    .entrada { left: 70px; top: 1510px; }
+    .llave { left: 190px; top: 1850px; }
+    .cenicero { left: 60px; top: 2200px; }
+    .vhs { left: 185px; top: 2550px; }
+
+    /* Decorativas */
+    .arbol { left: 15px; top: 470px; }
+    .cinefoto { left: 225px; top: 350px; }
+    .casamiento { left: 175px; top: 1010px; }
+    .beso1 { left: 20px; top: 1680px; }
+    .beso2 { left: 225px; top: 2040px; }
+    .slayfoto { left: 185px; top: 2880px; }
+
+    /* Botón */
+    .entradas {
+        left: 50%;
+        right: auto;
+        bottom: 60px;
+        transform: translateX(-50%);
+    }
+
+    .foto {
+        width: 170px !important;
+    }
+}
