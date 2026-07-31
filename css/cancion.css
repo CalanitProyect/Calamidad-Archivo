@@ -211,3 +211,13 @@ h1 {
     z-index: 5;
     transform: rotate(15deg) scaleX(1.08); /* Un toque ovalado natural */
 }
+/* ==========================================
+   TEXTO FRAGMENTADO / PERDIDO
+========================================== */
+.perdido {
+    opacity: 0.5;
+    font-style: italic;
+    color: #666;
+    letter-spacing: 1px;
+    margin: 12px 0;
+}
