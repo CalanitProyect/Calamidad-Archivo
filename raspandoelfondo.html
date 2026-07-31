@@ -1,222 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo 03/07 - Raspando el Fondo | Calamidad</title>
 
-<title>Archivo 03/07 - Raspando el Fondo</title>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-
-<style>
-
-body{
-    background:#e6dcc6;
-    color:#2b2b2b;
-    font-family:'Special Elite', serif;
-    max-width:800px;
-    margin:auto;
-    padding:50px 30px;
-    line-height:2;
-}
-
-.archivo{
-    position:relative;
-    background:#f6eedf;
-    padding:45px;
-    border:1px solid #9d927f;
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
-    transform:rotate(.18deg);
-    overflow:hidden;
-}
-
-.archivo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:url('papel.jpg');
-    background-size:cover;
-    opacity:.18;
-    pointer-events:none;
-}
-
-.archivo>*{
-    position:relative;
-    z-index:2;
-}
-
-h1{
-    letter-spacing:4px;
-    font-weight:normal;
-    margin-top:25px;
-}
-
-.nota{
-    opacity:.6;
-    font-size:.9em;
-}
-
-a{
-    color:#222;
-}
-
-/* CENICERO */
-
-.cenicero{
-    position:absolute;
-    width:230px;
-    right:-10px;
-    top:620px;
-    transform:rotate(-12deg);
-    z-index:10;
-    filter:drop-shadow(0 8px 12px rgba(0,0,0,.35));
-}
-
-/* QUEMADURA */
-
-.quemadura{
-    position:absolute;
-    width:140px;
-    height:140px;
-
-    right:145px;
-    top:720px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(35,20,10,.7) 0%,
-    rgba(70,40,20,.45) 18%,
-    rgba(130,90,40,.20) 40%,
-    transparent 72%);
-
-    mix-blend-mode:multiply;
-
-    opacity:.55;
-
-    pointer-events:none;
-
-    z-index:5;
-}
-
-.grito{
-    font-size:1.18em;
-    margin:38px 0;
-    letter-spacing:1px;
-}
-
-</style>
-
+    <!-- Estilos compartidos -->
+    <link rel="stylesheet" href="css/cancion.css">
 </head>
-
 <body>
 
-<div class="archivo">
+    <main class="contenedor">
+        <article class="archivo">
+            <!-- Efecto visual de quemadura -->
+            <div class="quemadura"></div>
 
-<p class="nota">
-ARCHIVO RECUPERADO 03/07
-</p>
+            <header class="encabezado-archivo">
+                <span class="codigo-archivo">ARCHIVO RECUPERADO 03/07</span>
+                <h1>RASPANDO EL FONDO</h1>
+            </header>
 
-<p class="nota">
-UBICACIÓN DEL HALLAZGO: Sobre una mesa de madera, junto a un cenicero con restos de ceniza.<br>
-SERIE 68343<br>
-ESTADO: Bordes deteriorados
-</p>
+            <section class="letra">
+                <p>
+                    Este mundo no me ofrece nada nuevo,<br>
+                    solo tengo estas ganas de inventar.
+                </p>
 
+                <p>
+                    Entre tantas veces que te acostumbraste<br>
+                    y las cosas que cambiaste de lugar...
+                </p>
 
-<div class="quemadura"></div>
+                <p>Se me vuelve a pegar<br>tu manera de hablar.</p>
 
-<h1>RASPANDO EL FONDO</h1>
+                <p>No voy a los lugares<br>donde sé que vas a faltar.</p>
 
-<p>
-Este mundo no me ofrece nada nuevo,
-solo tengo estas ganas de inventar.
-</p>
+                <p>
+                    Y la gente me pregunta por vos<br>
+                    porque saben<br>
+                    que yo sé dónde estás.
+                </p>
 
-<p>
-Entre tantas veces que te acostumbraste
-y las cosas que cambiaste de lugar...
-</p>
+                <p>
+                    Me entrego,<br>
+                    pero cada vez más<br>
+                    siento los gajes<br>
+                    de tu soledad.
+                </p>
 
-<p>
-Se me vuelve a pegar
-tu manera de hablar.
-</p>
+                <p class="grito">Necesito que la gente deje de irse.</p>
 
-<p>
-No voy a los lugares
-donde sé que vas a faltar.
-</p>
+                <p>Siempre quedo debiéndote<br>algo que no puedo dar.</p>
 
-<p>
-Y la gente me pregunta por vos
-porque saben
-que yo sé dónde estás.
-</p>
+                <p>Yo sé que ya estás hecha una tragedia.</p>
 
-<p>
-Me entrego,
-pero cada vez más
-siento los gajes
-de tu soledad.
-</p>
+                <p>Las cosas<br>no podrían empeorar.</p>
 
-<p class="grito">
-Necesito que la gente deje de irse.
-</p>
+                <p>
+                    Es por eso que me cuesta<br>
+                    cuando elijo entre<br>
+                    juzgarte por tu juicio<br>
+                    o tu verdad.
+                </p>
 
-<p>
-Siempre quedo debiéndote
-algo que no puedo dar.
-</p>
+                <p>Me diluye pensar...</p>
 
-<p>
-Yo sé que ya estás hecha una tragedia.
-</p>
+                <p>¿No era entonces verdad?</p>
 
-<p>
-Las cosas
-no podrían empeorar.
-</p>
+                <p>
+                    ¿No estábamos ya,<br>
+                    todos,<br>
+                    raspando el fondo<br>
+                    de nuestra bondad?
+                </p>
 
-<p>
-Es por eso que me cuesta
-cuando elijo entre
-juzgarte por tu juicio
-o tu verdad.
-</p>
+                <p>Quedan cuatro cintas.</p>
 
-<p>
-Me diluye pensar...
-</p>
+                <p class="firma">- C</p>
+            </section>
 
-<p>
-¿No era entonces verdad?
-</p>
+            <footer class="metadatos">
+                <p><strong>UBICACIÓN DEL HALLAZGO:</strong> Sobre una mesa de madera, junto a un cenicero con restos de ceniza.</p>
+                <p><strong>SERIE:</strong> 68343</p>
+                <p><strong>ESTADO:</strong> Bordes deteriorados</p>
+            </footer>
 
-<p>
-¿No estábamos ya,
-todos,
-raspando el fondo
-de nuestra bondad?
-</p>
-
-<p>
-Quedan cuatro cintas.
-</p>
-
-<p>
--C
-</p>
-
-</div>
-
-<p style="margin-top:40px;">
-<a href="index.html">← Volver al archivo</a>
-</p>
+            <nav class="navegacion">
+                <a href="index.html" class="boton-volver">← Volver al archivo</a>
+            </nav>
+        </article>
+    </main>
 
 </body>
 </html>
