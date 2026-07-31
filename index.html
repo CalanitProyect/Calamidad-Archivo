@@ -95,14 +95,15 @@
         }
 
         /* ==========================================
-           NEGATIVO DE FOTO (GRANDE Y PEGARLO AL EXPEDIENTE)
+           NEGATIVO EN VERTICAL
         ========================================== */
         .negativo {
             position: relative;
-            transform: rotate(-4deg);
-            width: 280px;
-            margin-left: -40px;
-            margin-top: -10px;
+            /* Lo rotamos a 90 grados con una leve inclinación organica (-85deg) */
+            transform: rotate(-85deg);
+            width: 260px;
+            margin-left: -70px; /* Lo pegamos bien al expediente */
+            margin-top: 20px;
             z-index: 6;
         }
 
@@ -142,7 +143,6 @@
             filter: sepia(0.12) contrast(1.05);
         }
 
-        /* FUENTE CURSIVA DE LAS POLAROIDS */
         .titulo-polaroid {
             font-family: 'Cedarville Cursive', cursive;
             font-size: 1.1em;
@@ -223,7 +223,7 @@
             .polaroid .foto { height: 120px; }
             .titulo-polaroid { font-size: 0.95em; }
             .expediente { padding: 20px 15px; }
-            .negativo { width: 200px; margin-left: 0; }
+            .negativo { width: 180px; margin-left: 0; transform: rotate(-90deg); }
         }
     </style>
 </head>
@@ -242,7 +242,7 @@
             </p>
         </article>
 
-        <!-- NEGATIVO ENCAJADO CERCA DEL EXPEDIENTE -->
+        <!-- NEGATIVO VERTICAL ENCAJADO AL EXPEDIENTE -->
         <div class="objeto negativo">
             <img class="negativo-img" src="img/malditosnegativos.png" alt="Negativo fotográfico">
         </div>
@@ -354,6 +354,10 @@
             15 · AGOSTO<br>CC MATIENZO
         </a>
 
+    </main>
+
+</body>
+</html>
     </main>
 
 </body>
