@@ -144,4 +144,42 @@ h1 {
     h1 {
         font-size: 1.8em;
     }
+}/* ==========================================
+   EFECTOS ESPECIALES Y ELEMENTOS EXTRA
+========================================== */
+.cenicero-overlay {
+    position: absolute;
+    width: 230px;
+    right: -10px;
+    top: 620px;
+    transform: rotate(-12deg);
+    z-index: 10;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35));
+}
+
+.quemadura {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    right: 145px;
+    top: 720px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(35, 20, 10, 0.7) 0%,
+        rgba(70, 40, 20, 0.45) 18%,
+        rgba(130, 90, 40, 0.20) 40%,
+        transparent 72%
+    );
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.grito {
+    font-size: 1.18em;
+    margin: 38px 0;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
