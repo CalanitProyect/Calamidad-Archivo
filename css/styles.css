@@ -19,20 +19,28 @@ body {
 /* ==========================================
    TABLERO PRINCIPAL
 ========================================== */
+/* Busca y actualiza esta sección */
 .tablero {
-    position: relative;
-    width: min(95vw, 1200px);
-    height: 1180px;
-    overflow: hidden;
+    position: relative; /* FUNDAMENTAL: Ancla para position:absolute */
+    width: min(95vw, 1200px); /* Ancho responsivo con máximo */
+    height: 1180px; /* Alto fijo del tablero (Desktop) */
+    margin: 20px auto; /* Centrado horizontal con margen superior */
+    overflow: hidden; /* Corta lo que salga del corcho */
+    background-color: #5d4037; /* Color marrón fallback por si falla la imagen */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+    
+    /* BORDE TEMPORAL DE PRUEBA: Elimínalo cuando termines */
+    /* border: 5px solid red; */ 
 }
 
+/* Busca y actualiza esta sección */
 .corcho {
     position: absolute;
-    inset: 0;
+    inset: 0; /* Cubre todo: top, right, bottom, left = 0 */
     width: 100%;
     height: 100%;
-    object-fit: fill;
-    z-index: -1;
+    object-fit: cover; /* Ajuste perfecto sin deformar */
+    z-index: -1; /* Detrás de todo el contenido */
 }
 
 .expediente,
@@ -44,11 +52,13 @@ body {
 /* ==========================================
    EXPEDIENTE
 ========================================== */
+/* Busca y actualiza esta sección */
 .expediente {
     position: absolute;
-    left: 70px;
-    top: 50px;
-    width: 390px;
+    left: 40px; /* Separación del borde izquierdo */
+    top: 40px;  /* Separación del borde superior */
+    width: 380px; /* Ancho de la nota */
+
     background: #f8f3ea;
     padding: 35px;
     transform: rotate(-2deg);
@@ -79,32 +89,37 @@ body {
 /* ==========================================
    POLAROIDS & OBJETOS
 ========================================== */
+/* Estilos Base para todos los objetos */
 .objeto {
-    position: absolute;
-    transition: transform 0.25s;
+    position: absolute; /* Se mueven RELATIVO a .tablero */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra chinche y polaroid */
+    z-index: 2;
+    transition: transform 0.3s ease; /* Suavidad al hover */
 }
 
+/* La Chinche (Pin) */
 .pin {
-    position: absolute;
-    width: 28px;
-    top: 0;
-    z-index: 30;
-    pointer-events: none;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+    width: 30px; /* Tamaño consistente */
+    height: auto;
+    margin-bottom: -15px; /* Superpone un poco la chinche a la foto */
+    z-index: 10; /* Siempre encima de la foto */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
+/* El marco de la Polaroid */
 .polaroid {
-    display: inline-block;
     background: #faf7f1;
-    padding: 10px 10px 36px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
-    margin-top: 8px;
-    transition: 0.25s;
+    padding: 10px 10px 35px; /* Espacio inferior para el texto */
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+/* La Foto dentro */
 .foto {
     display: block;
+    width: 100%; /* Ocupa todo el ancho del marco .polaroid */
     height: auto;
 }
 
