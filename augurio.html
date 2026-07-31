@@ -1,138 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo 01/07 - Augurio | Calamidad</title>
 
-<title>Archivo 01/07 - Augurio</title>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-
-<style>
-
-body{
-    background:#e6dcc6;
-
-    color:#2b2b2b;
-    font-family:'Special Elite', serif;
-
-    max-width:800px;
-    margin:auto;
-    padding:50px 30px;
-    line-height:2;
-}
-
-.archivo{
-    position:relative;
-
-    background:#f3ead7;
-
-    padding:45px;
-
-    border:1px solid #9d927f;
-
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.15);
-
-    transform:rotate(-0.3deg);
-
-    overflow:hidden;
-}
-    .archivo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-    url('papel.jpg');
-
-    background-size: 100% 100%;
-    opacity:.25;
-
-    pointer-events:none;
-}
-.archivo > *{
-    position:relative;
-    z-index:1;
-}
-.nota{
-    opacity:.6;
-    font-size:.9em;
-}
-
-a{
-    color:#222;
-}
-
-</style>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/cancion.css">
 </head>
-
 <body>
 
-<div class="archivo">
-<h1>AUGURIO</h1>
+    <main class="contenedor">
+        <article class="archivo">
+            <header class="encabezado-archivo">
+                <span class="codigo-archivo">ARCHIVO RECUPERADO 01/07</span>
+                <h1>AUGURIO</h1>
+            </header>
 
+            <section class="letra">
+                <p>Me dijiste que tengo todo el tiempo del mundo,</p>
+                <p>Mis pies no tocan el suelo ni por un segundo...</p>
+                <p>Nunca me voy a dejar de disculpar por todas las veces en las que</p>
+                <p>Me dejé matar por la curiosidad</p>
+                <p>Nadie se alegra cuando aparezco,</p>
+                <p>Soy un augurio de que van a nacer malos recuerdos.</p>
+                <p>Todos lo saben, menos vos.</p>
+                <p>Todos lo saben</p>
 
+                <p class="verso-destacado">Menos vos!</p>
 
-<p>
-Me dijiste que tengo todo el tiempo del mundo,
-</p>
+                <p>Faltan seis cintas.</p>
+                <p class="firma">- C</p>
+            </section>
 
-<p>
-Mis pies no tocan el suelo ni por un segundo...
-</p>
+            <footer class="metadatos">
+                <p><strong>UBICACIÓN DEL HALLAZGO:</strong> Bolsillo derecho de un tapado, habitación principal</p>
+                <p><strong>SERIE:</strong> 68341</p>
+                <p><strong>ESTADO:</strong> Digitalizado</p>
+            </footer>
 
-<p>
-Nunca me voy a dejar de disculpar por todas las veces en las que
-</p>
-
-<p>
-Me dejé matar por la curiosidad
-</p>
-
-<p>
-Nadie se alegra cuando aparezco,
-</p>
-
-<p>
-Soy un augurio de que van a nacer malos recuerdos.
-</p>
-
-<p>
-Todos lo saben, menos vos.
-</p>
-
-<p>
-Todos lo saben
-</p>
-
-<p>
-Menos vos!
-</p>
-
-<p>
-Faltan seis cintas.
-</p>
-
-<p>
--C
-</p>
-<p class="nota">
-ARCHIVO RECUPERADO 01/07
-</p>
-
-<p class="nota">
-UBICACIÓN DEL HALLAZGO: Bolsillo derecho de un tapado, habitación principal <br>
-SERIE 68341<br>
-ESTADO: Digitalizado
-</p>
-
-
-<p style="margin-top:40px;">
-<a href="index.html">← Volver al archivo</a>
-</p>
+            <nav class="navegacion">
+                <a href="index.html" class="boton-volver">← Volver al archivo</a>
+            </nav>
+        </article>
+    </main>
 
 </body>
 </html>

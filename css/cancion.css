@@ -1,0 +1,223 @@
+/* ==========================================
+   RESET & BASE
+========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #e6dcc6;
+    color: #2b2b2b;
+    font-family: 'Special Elite', serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    line-height: 1.8;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 750px;
+}
+
+/* ==========================================
+   HOJA DE EXPEDIENTE / CANCIÓN
+========================================== */
+.archivo {
+    position: relative;
+    background: #f3ead7;
+    padding: 50px 45px;
+    border: 1px solid #9d927f;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: rotate(-0.3deg);
+    overflow: hidden;
+}
+
+/* Textura de papel envejecido */
+.archivo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../img/papel.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Para que el texto quede por encima de la textura */
+.archivo > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   TEXTO & LETRA
+========================================== */
+.encabezado-archivo {
+    margin-bottom: 30px;
+    border-bottom: 1px stroke rgba(0, 0, 0, 0.15);
+    padding-bottom: 15px;
+}
+
+.codigo-archivo {
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 2.2em;
+    letter-spacing: 4px;
+    color: #1a1a1a;
+}
+
+.letra p {
+    margin-bottom: 16px;
+    font-size: 1.05em;
+}
+
+.verso-destacado {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.firma {
+    margin-top: 25px;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+/* ==========================================
+   METADATOS DEL HALLAZGO
+========================================== */
+.metadatos {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ad9f88;
+    font-size: 0.85em;
+    opacity: 0.75;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   NAVEGACIÓN
+========================================== */
+.navegacion {
+    margin-top: 35px;
+}
+
+.boton-volver {
+    display: inline-block;
+    color: #222;
+    text-decoration: none;
+    font-size: 0.95em;
+    padding: 6px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.2s ease;
+}
+
+.boton-volver:hover {
+    background: #222;
+    color: #f3ead7;
+}
+
+/* ==========================================
+   RESPONSIVE (MÓVIL)
+========================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+    
+    .archivo {
+        padding: 30px 20px;
+        transform: rotate(0deg);
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}/* ==========================================
+   EFECTOS ESPECIALES Y ELEMENTOS EXTRA
+========================================== */
+.cenicero-overlay {
+    position: absolute;
+    width: 230px;
+    right: -10px;
+    top: 620px;
+    transform: rotate(-12deg);
+    z-index: 10;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35));
+}
+
+.quemadura {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    right: 145px;
+    top: 720px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(35, 20, 10, 0.7) 0%,
+        rgba(70, 40, 20, 0.45) 18%,
+        rgba(130, 90, 40, 0.20) 40%,
+        transparent 72%
+    );
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.grito {
+    font-size: 1.18em;
+    margin: 38px 0;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+/* ==========================================
+   EFECTO: MANCHA DE VINO
+========================================== */
+.mancha-vino {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: 80px;
+    top: 650px;
+    border-radius: 50%;
+    
+    /* Cerco de copa de vino en tono borravino / púrpura oscuro envejecido */
+    background: radial-gradient(
+        circle,
+        transparent 50%,
+        rgba(90, 25, 35, 0.22) 65%,
+        rgba(70, 15, 25, 0.45) 75%,
+        rgba(100, 30, 45, 0.15) 85%,
+        transparent 92%
+    );
+    
+    filter: blur(1px);
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 5;
+    transform: rotate(15deg) scaleX(1.08); /* Un toque ovalado natural */
+}
+/* ==========================================
+   TEXTO FRAGMENTADO / PERDIDO
+========================================== */
+.perdido {
+    opacity: 0.5;
+    font-style: italic;
+    color: #666;
+    letter-spacing: 1px;
+    margin: 12px 0;
+}
