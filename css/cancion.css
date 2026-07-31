@@ -183,3 +183,31 @@ h1 {
     letter-spacing: 1px;
     font-weight: bold;
 }
+/* ==========================================
+   EFECTO: MANCHA DE VINO
+========================================== */
+.mancha-vino {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: 80px;
+    top: 650px;
+    border-radius: 50%;
+    
+    /* Cerco de copa de vino en tono borravino / púrpura oscuro envejecido */
+    background: radial-gradient(
+        circle,
+        transparent 50%,
+        rgba(90, 25, 35, 0.22) 65%,
+        rgba(70, 15, 25, 0.45) 75%,
+        rgba(100, 30, 45, 0.15) 85%,
+        transparent 92%
+    );
+    
+    filter: blur(1px);
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 5;
+    transform: rotate(15deg) scaleX(1.08); /* Un toque ovalado natural */
+}
