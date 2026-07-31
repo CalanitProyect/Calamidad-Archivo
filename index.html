@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archivo Calamidad</title>
 
-    <!-- Fuentes -->
+    <!-- Fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Special+Elite&display=swap" rel="stylesheet">
@@ -95,13 +95,13 @@
         }
 
         /* ==========================================
-           NEGATIVO DE FOTO (MÁS GRANDE Y CERCA)
+           NEGATIVO DE FOTO (GRANDE Y PEGARLO AL EXPEDIENTE)
         ========================================== */
         .negativo {
             position: relative;
             transform: rotate(-4deg);
-            width: 280px; /* Más grande */
-            margin-left: -40px; /* Se acopla pegadito al expediente */
+            width: 280px;
+            margin-left: -40px;
             margin-top: -10px;
             z-index: 6;
         }
@@ -142,11 +142,12 @@
             filter: sepia(0.12) contrast(1.05);
         }
 
+        /* FUENTE CURSIVA DE LAS POLAROIDS */
         .titulo-polaroid {
-            font-size: 0.8em;
+            font-family: 'Cedarville Cursive', cursive;
+            font-size: 1.1em;
             margin-top: 10px;
-            font-weight: bold;
-            color: #222;
+            color: #1a1a1a;
         }
 
         .pin {
@@ -220,6 +221,7 @@
             .tablero { padding: 25px 10px; gap: 20px 10px; }
             .polaroid { width: 140px; padding: 8px 8px 12px 8px; }
             .polaroid .foto { height: 120px; }
+            .titulo-polaroid { font-size: 0.95em; }
             .expediente { padding: 20px 15px; }
             .negativo { width: 200px; margin-left: 0; }
         }
@@ -278,6 +280,7 @@
             <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
             <div class="polaroid">
                 <img class="foto" src="img/patastangueras.jpg" alt="Patas tangueras">
+                <div class="titulo-polaroid">Patas tangueras</div>
             </div>
         </div>
 
@@ -285,6 +288,7 @@
             <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
             <div class="polaroid">
                 <img class="foto" src="img/slay.jpg" alt="Fotografía decorativa">
+                <div class="titulo-polaroid">Fotografía decorativa</div>
             </div>
         </div>
 
