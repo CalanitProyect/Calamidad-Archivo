@@ -95,7 +95,7 @@
         }
 
         /* ==========================================
-           NEGATIVO EN VERTICAL
+           NEGATIVOS (VERTICALES Y SECUNDARIOS)
         ========================================== */
         .negativo {
             position: relative;
@@ -106,14 +106,21 @@
             z-index: 6;
         }
 
-        .negativo-img {
+        .negativo-tira {
+            position: relative;
+            width: 90px;
+            display: inline-block;
+            z-index: 4;
+        }
+
+        .negativo-img, .negativo-tira-img {
             width: 100%;
             display: block;
             filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
         }
 
         /* ==========================================
-           OBJETOS Y POLAROIDS
+           OBJETOS, DIJES Y POLAROIDS
         ========================================== */
         .objeto {
             position: relative;
@@ -123,6 +130,23 @@
             cursor: pointer;
             transition: transform 0.25s ease, z-index 0s;
             z-index: 2;
+        }
+
+        .dije-colgado {
+            position: relative;
+            width: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 7;
+        }
+
+        .dije-colgado .dije-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: -8px;
+            filter: drop-shadow(4px 10px 8px rgba(0, 0, 0, 0.5));
         }
 
         .polaroid {
@@ -161,9 +185,9 @@
         }
 
         /* ==========================================
-           HOVER GENERAL EN TODAS LAS FOTOS
+           HOVER GENERAL EN TODAS LAS FOTOS Y DIJES
         ========================================== */
-        .objeto:hover {
+        .objeto:hover, .dije-colgado:hover {
             transform: scale(1.12) rotate(0deg) !important;
             z-index: 50 !important;
         }
@@ -189,6 +213,14 @@
         .libro { transform: rotate(5deg); }
         .llave { transform: rotate(-3deg); }
         .vhs { transform: rotate(4deg); }
+
+        /* Rotaciones específicas para dijes y tiras extra */
+        .relicario { transform: rotate(-6deg); }
+        .westwood-oro { transform: rotate(-4deg); }
+        .neg-mea { transform: rotate(3deg); }
+        .neg-perm { transform: rotate(-5deg); }
+        .neg-vacio1 { transform: rotate(2deg); }
+        .neg-vacio2 { transform: rotate(-3deg); }
 
         /* ==========================================
            BOTÓN ENTRADAS
@@ -223,6 +255,8 @@
             .titulo-polaroid { font-size: 0.95em; }
             .expediente { padding: 20px 15px; }
             .negativo { width: 180px; margin-left: 0; transform: rotate(-90deg); }
+            .dije-colgado { width: 80px; }
+            .negativo-tira { width: 70px; }
         }
     </style>
 </head>
@@ -241,9 +275,15 @@
             </p>
         </article>
 
-        <!-- NEGATIVO VERTICAL ENCAJADO AL EXPEDIENTE -->
+        <!-- NEGATIVO PRINCIPAL VERTICAL ENCAJADO AL EXPEDIENTE -->
         <div class="objeto negativo">
             <img class="negativo-img" src="img/malditosnegativos.png" alt="Negativo fotográfico">
+        </div>
+
+        <!-- RELICARIO COLGADO DE CHINCHE -->
+        <div class="dije-colgado relicario">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <img class="dije-img" src="img/relicariosii.png" alt="Relicario con foto">
         </div>
 
         <!-- FOTO DECORATIVA -->
@@ -262,6 +302,12 @@
                 <div class="titulo-polaroid">01 · Augurio</div>
             </div>
         </a>
+
+        <!-- TIRA DE NEGATIVO MEA CULPA -->
+        <div class="negativo-tira neg-mea">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <img class="negativo-tira-img" src="img/negmeaculpa.png" alt="Tira de negativo Mea Culpa">
+        </div>
 
         <!-- FOTO DECORATIVA -->
         <div class="objeto beso1">
@@ -288,6 +334,12 @@
             </div>
         </div>
 
+        <!-- TIRA DE NEGATIVO PERMANENCIA -->
+        <div class="negativo-tira neg-perm">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <img class="negativo-tira-img" src="img/negperman.png" alt="Tira de negativo Permanencia">
+        </div>
+
         <!-- LINK CANCIÓN 03 -->
         <a href="raspandoelfondo.html" class="objeto cenicero">
             <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
@@ -297,12 +349,24 @@
             </div>
         </a>
 
+        <!-- COLLAR WESTWOOD DORADO COLGADO -->
+        <div class="dije-colgado westwood-oro">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <img class="dije-img" src="img/westwooddorado.png" alt="Collar de oro Westwood">
+        </div>
+
         <!-- FOTO DECORATIVA -->
         <div class="objeto beso2">
             <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
             <div class="polaroid">
                 <img class="foto" src="img/besoraspando.jpg" alt="Beso raspando">
             </div>
+        </div>
+
+        <!-- TIRA DE NEGATIVO VACÍO 1 -->
+        <div class="negativo-tira neg-vacio1">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <img class="negativo-tira-img" src="img/negvacio1.png" alt="Tira de negativo envejecido">
         </div>
 
         <!-- LINK CANCIÓN 04 -->
@@ -321,6 +385,12 @@
                 <img class="foto" src="img/patastangueras.jpg" alt="Patas tangueras">
                 <div class="titulo-polaroid">Patas tangueras</div>
             </div>
+        </div>
+
+        <!-- TIRA DE NEGATIVO VACÍO 2 -->
+        <div class="negativo-tira neg-vacio2">
+            <img class="pin" src="img/chincherojo.png" alt="Chinche de fijación">
+            <img class="negativo-tira-img" src="img/negvacio2.png" alt="Tira de negativo texto antiguo">
         </div>
 
         <!-- LINK CANCIÓN 05 -->
@@ -348,7 +418,7 @@
                 <img class="foto" src="img/slay.jpg" alt="Fotografía decorativa">
                 <div class="titulo-polaroid">Fotografía decorativa</div>
             </div>
-        </div>
+        </a>
 
         <!-- LINK CANCIÓN 07 -->
         <a href="letargia.html" class="objeto vhs">
