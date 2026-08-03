@@ -336,112 +336,98 @@ a.objeto:hover .polaroid, .objeto:hover .polaroid {
 }
 
 /* ==========================================
-   RESPONSIVO (EXCLUSIVO MOBILE - COLLAGE ESPARCIDO)
+   RESPONSIVO (EXCLUSIVO MOBILE - COLLAGE FLUIDO)
 ========================================== */
 @media (max-width: 768px) {
     .tablero {
         position: relative !important;
         width: 100% !important;
         max-width: 100% !important;
-        min-height: 1800px !important; /* Altura suficiente para distribuir los elementos */
-        display: block !important;
-        padding: 20px 10px 100px 10px !important;
-        overflow: hidden !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        padding: 30px 15px 80px 15px !important;
+        gap: 25px !important;
+        overflow-x: hidden !important;
     }
 
-    /* Ocultamos solo el negativo principal gigante para que no sature la pantalla chica */
-    .negativo-principal {
+    /* Ocultamos el negativo gigante de fondo para que no ensucie la pantalla móvil */
+    .negativo-principal,
+    .negativo-tira,
+    .relicario-asomando {
         display: none !important;
     }
 
-    /* Expediente principal arriba al centro */
+    /* Expediente principal arriba */
     .expediente {
         position: relative !important;
-        width: 92% !important;
-        max-width: 420px !important;
-        margin: 0 auto 35px auto !important;
-        order: unset !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto 10px auto !important;
+        transform: rotate(-1deg) !important;
+        order: 1 !important;
     }
 
-    /* Ajustamos el tamaño general de las polaroids para celular */
+    /* Tamaño ideal para las polaroids en celular */
     .polaroid {
-        width: 135px !important;
+        width: 150px !important;
         padding: 8px 6px 12px 6px !important;
     }
 
     .polaroid .foto {
-        height: 110px !important;
+        height: 130px !important;
     }
 
     .titulo-polaroid {
-        font-size: 0.8em !important;
+        font-size: 0.85em !important;
     }
 
-    /* ==========================================
-       POSICIONAMIENTO LIBRE A LOS COSTADOS (MÓVIL)
-    ========================================== */
+    /* Volvemos los objetos a posición relativa para que fluyan en columna */
     .objeto {
-        position: absolute !important;
+        position: relative !important;
+        display: inline-block !important;
     }
 
-    /* Intercalamos las fotos a izquierda y derecha */
-    .arbol       { top: 270px; left: 15px; transform: rotate(-6deg); z-index: 5; }
-    .fichin      { top: 310px; right: 15px; transform: rotate(5deg); z-index: 6; }
-    .beso1       { top: 480px; left: 20px; transform: rotate(4deg); z-index: 5; }
-    .tacita      { top: 540px; right: 20px; transform: rotate(-5deg); z-index: 6; }
-    .casamiento  { top: 710px; left: 15px; transform: rotate(-3deg); z-index: 5; }
-    .cenicero    { top: 770px; right: 15px; transform: rotate(6deg); z-index: 6; }
-    .beso2       { top: 940px; left: 20px; transform: rotate(-4deg); z-index: 5; }
-    .entrada     { top: 1000px; right: 20px; transform: rotate(5deg); z-index: 6; }
-    .cinefoto    { top: 1170px; left: 15px; transform: rotate(4deg); z-index: 5; }
-    .libro       { top: 1230px; right: 15px; transform: rotate(-6deg); z-index: 6; }
-    .llave       { top: 1400px; left: 20px; transform: rotate(-3deg); z-index: 5; }
-    .slayfoto    { top: 1460px; right: 20px; transform: rotate(5deg); z-index: 6; }
-    .vhs         { top: 1630px; left: 15px; transform: rotate(-5deg); z-index: 5; }
+    /* Collar Westwood adaptado al flujo móvil */
+    .dije-colgado {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        width: 130px !important;
+        order: 8 !important;
+        transform: rotate(4deg) !important;
+    }
 
     /* ==========================================
-       OBJETOS DECORATIVOS ALREDEDOR (MÓVIL)
+       EFECTO ZIG-ZAG / COLLAGE INTERCALADO (MÓVIL)
+       Alternamos izquierda y derecha con translate
     ========================================== */
-    .negativo-tira {
-        display: block !important;
-        position: absolute !important;
-        z-index: 3 !important;
-    }
+    .fichin      { order: 2;  transform: translate(-20px, 0px) rotate(-5deg); }
+    .arbol       { order: 3;  transform: translate(20px, -10px) rotate(6deg); }
+    .tacita      { order: 4;  transform: translate(-18px, 0px) rotate(4deg); }
+    .beso1       { order: 5;  transform: translate(22px, -10px) rotate(-6deg); }
+    .casamiento  { order: 6;  transform: translate(-15px, 0px) rotate(-3deg); }
+    .cenicero    { order: 7;  transform: translate(18px, -10px) rotate(5deg); }
+    .beso2       { order: 9;  transform: translate(-20px, 0px) rotate(6deg); }
+    .entrada     { order: 10; transform: translate(20px, -10px) rotate(-4deg); }
+    .cinefoto    { order: 11; transform: translate(-15px, 0px) rotate(5deg); }
+    .libro       { order: 12; transform: translate(18px, -10px) rotate(-5deg); }
+    .llave       { order: 13; transform: translate(-20px, 0px) rotate(-4deg); }
+    .slayfoto    { order: 14; transform: translate(20px, -10px) rotate(6deg); }
+    .vhs         { order: 15; transform: translate(-10px, 0px) rotate(-3deg); }
 
-    .neg-mea     { top: 410px; right: 25px; width: 85px; transform: rotate(15deg); }
-    .neg-perm    { top: 660px; left: 15px; width: 80px; transform: rotate(-14deg); }
-    .neg-vacio1  { top: 890px; right: 25px; width: 85px; transform: rotate(12deg); }
-    .neg-vacio2  { top: 1350px; right: 20px; width: 80px; transform: rotate(-10deg); }
-
-    .relicario-asomando {
-        display: block !important;
-        position: absolute !important;
-        top: 1120px;
-        left: 10px;
-        width: 95px;
-        transform: rotate(-8deg);
-        z-index: 12 !important;
-    }
-
-    .dije-colgado {
-        display: block !important;
-        position: absolute !important;
-        top: 210px;
-        right: 10px;
-        width: 100px;
-        transform: rotate(8deg);
-        z-index: 12 !important;
-    }
-
-    /* Botón de entradas fijo abajo al centro */
+    /* Botón de entradas al final */
     .entradas {
-        position: absolute !important;
-        bottom: 25px !important;
-        left: 50% !important;
-        transform: translateX(-50%) rotate(-1deg) !important;
-        width: 85% !important;
-        max-width: 280px !important;
-        margin-top: 0 !important;
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: rotate(-1deg) !important;
+        width: 100% !important;
+        max-width: 260px !important;
+        margin: 20px auto 0 auto !important;
+        order: 16 !important;
         z-index: 20 !important;
     }
 }
