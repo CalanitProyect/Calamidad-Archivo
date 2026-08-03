@@ -107,7 +107,7 @@
         }
 
         /* ==========================================
-           NEGATIVOS & RELICARIO
+           NEGATIVOS & RELICARIO (DECORACIONES)
         ========================================== */
         .negativo-principal {
             position: absolute;
@@ -250,7 +250,7 @@
         }
 
         /* ==========================================
-           ORDEN ORIGINAL Y ROTACIONES DESKTOP
+           ORDEN Y ROTACIONES ORIGINALES (DESKTOP)
         ========================================== */
         .arbol        { order: 2;  transform: translate(10px, -15px) rotate(6deg); z-index: 6; }
         .fichin       { order: 3;  transform: translate(-15px, 25px) rotate(-5deg); z-index: 8; }
@@ -297,7 +297,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE (SOLO CAMBIA EN CELULAR)
+           RESPONSIVE (EXCLUSIVO MOBILE)
         ========================================== */
         @media (max-width: 768px) {
             .negativo-tira, 
@@ -307,45 +307,46 @@
             }
             
             .tablero {
-                padding: 25px 10px;
-                gap: 20px 8px;
+                padding: 25px 12px;
+                gap: 18px 0px;
                 border-width: 6px;
+                justify-content: center;
             }
             
             .polaroid {
-                width: 135px;
+                width: 145px;
                 padding: 8px 6px 12px 6px;
             }
 
             .polaroid .foto {
-                height: 115px;
+                height: 120px;
             }
 
             .titulo-polaroid {
-                font-size: 0.8em;
+                font-size: 0.85em;
             }
             
             .expediente {
                 padding: 20px 15px;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
                 order: 1;
             }
 
-            /* REORDENADO INTERCALADO EXCLUSIVO PARA MOBILE */
-            .fichin       { order: 2;  transform: translate(-5px, 8px) rotate(-6deg); }
-            .arbol        { order: 3;  transform: translate(6px, -10px) rotate(5deg); }
-            .tacita       { order: 4;  transform: translate(-6px, 12px) rotate(6deg); }
-            .beso1        { order: 5;  transform: translate(8px, -10px) rotate(-5deg); }
-            .cenicero     { order: 6;  transform: translate(-8px, 10px) rotate(5deg); }
-            .casamiento   { order: 7;  transform: translate(6px, -8px) rotate(-4deg); }
-            .westwood-oro { order: 8;  transform: translate(2px, -5px) rotate(-7deg); width: 100px; }
-            .entrada      { order: 9;  transform: translate(-8px, -10px) rotate(-5deg); }
-            .beso2        { order: 10; transform: translate(10px, 8px) rotate(6deg); }
-            .libro        { order: 11; transform: translate(-5px, -6px) rotate(7deg); }
-            .cinefoto     { order: 12; transform: translate(6px, 12px) rotate(-4deg); }
-            .llave        { order: 13; transform: translate(-8px, 10px) rotate(-6deg); }
-            .slayfoto     { order: 14; transform: translate(5px, -8px) rotate(4deg); }
-            .vhs          { order: 15; transform: translate(-4px, 8px) rotate(5deg); }
+            /* REORDENADO INTERCALADO + ZIG-ZAG BALANCEADO IZQUIERDA/DERECHA */
+            .fichin       { order: 2;  transform: translate(-18px, 0px) rotate(-5deg); }
+            .arbol        { order: 3;  transform: translate(18px, -5px) rotate(6deg); }
+            .tacita       { order: 4;  transform: translate(-15px, 0px) rotate(5deg); }
+            .beso1        { order: 5;  transform: translate(20px, -5px) rotate(-6deg); }
+            .cenicero     { order: 6;  transform: translate(-18px, 0px) rotate(6deg); }
+            .casamiento   { order: 7;  transform: translate(15px, -5px) rotate(-4deg); }
+            .westwood-oro { order: 8;  transform: translate(0px, 0px) rotate(-7deg); width: 110px; }
+            .entrada      { order: 9;  transform: translate(-20px, 0px) rotate(-5deg); }
+            .beso2        { order: 10; transform: translate(18px, -5px) rotate(6deg); }
+            .libro        { order: 11; transform: translate(-15px, 0px) rotate(7deg); }
+            .cinefoto     { order: 12; transform: translate(20px, -5px) rotate(-5deg); }
+            .llave        { order: 13; transform: translate(-18px, 0px) rotate(-6deg); }
+            .slayfoto     { order: 14; transform: translate(15px, -5px) rotate(4deg); }
+            .vhs          { order: 15; transform: translate(-12px, 0px) rotate(5deg); }
             .entradas     { order: 16; }
         }
     </style>
@@ -500,11 +501,6 @@
         <a class="entradas" href="https://ccmatienzo.com.ar/event/111516-la-fatal-1508" target="_blank" rel="noopener noreferrer">
             15 · AGOSTO<br>CC MATIENZO
         </a>
-
-    </main>
-
-</body>
-</html>
 
     </main>
 
