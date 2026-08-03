@@ -21,44 +21,43 @@
 body {
     background: #111111;
     color: #2b2b2b;
-    font-family: 'Moms Typewriter', 'Special Elite', serif;
+    font-family: 'Special Elite', 'Moms Typewriter', serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px 10px;
 }
 
 /* ==========================================
-   TABLERO DE CORCHO (FILA ÚNICA REAL CON SCROLL)
+   TABLERO DE CORCHO (GRILLA ORIGINAL)
 ========================================== */
 .tablero {
     position: relative;
     width: 100%;
-    min-height: 85vh;
+    max-width: 1100px;
+    min-height: 100vh;
     background: url('img/corcho.jpg') #8c6747 center/cover repeat;
     border: 12px solid #3d2612;
     border-radius: 4px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.5);
 
-    /* FORZAR FILA Y SCROLL HORIZONTAL EN ESCRITORIO */
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    gap: 25px !important;
-    padding: 60px 40px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* ESENCIAL: Mantiene tu diseño de muro */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px 25px;
+    padding: 60px 40px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
-/* OBLIGAR A RESPETAR EL TAMAÑO Y EVITAR QUE SE TIREN ABAJO */
 .expediente, 
 .objeto, 
-.dije-colgado, 
 .entradas {
-    flex-shrink: 0 !important;
+    flex-shrink: 0;
 }
 
 /* ==========================================
@@ -67,14 +66,16 @@ body {
 .expediente {
     position: relative;
     width: 100%;
-    max-width: 420px;
+    max-width: 500px;
     background: #f3ead7;
     padding: 30px 25px;
     border: 1px solid #9d927f;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    transform: rotate(-1deg);
-    margin-bottom: 10px;
+    transform: rotate(-1.5deg);
+    margin-bottom: 40px;
     z-index: 5;
+    flex-basis: 100%;
+    order: 1;
 }
 
 .expediente h1 {
@@ -104,7 +105,7 @@ body {
 }
 
 /* ==========================================
-   NEGATIVOS (AGRANDADOS Y POSICIONADOS LIBRES)
+   NEGATIVOS & RELICARIO
 ========================================== */
 .negativo-principal {
     position: absolute;
@@ -118,9 +119,8 @@ body {
 
 .negativo-tira {
     position: absolute;
-    width: 110px;
     z-index: 3;
-    transition: transform 0.25s ease;
+    transition: transform 0.25s ease, z-index 0s;
 }
 
 .negativo-tira:hover {
@@ -135,25 +135,163 @@ body {
     filter: drop-shadow(2px 6px 10px rgba(0, 0, 0, 0.45));
 }
 
-/* Ubicaciones de las tiras */
-.neg-mea    { top: 380px; left: 10px;  width: 120px; transform: rotate(-12deg); } /* Negativo 1 (abajo izquierda) */
+.neg-mea    { top: 380px; left: 10px;  width: 120px; transform: rotate(-12deg); }
 .neg-perm   { top: 350px; left: 300px; width: 110px; transform: rotate(15deg); }
-.neg-vacio1 { top: 280px; left: 650px; width: 115px; transform: rotate(12deg); }  /* Negativo 2 (abajo a la derecha) */
-.neg-vacio2 { 
-    bottom: 30px; 
-    left: 520px; 
-    width: 110px; 
-    transform: rotate(-8deg); 
+.neg-vacio1 { top: 280px; left: 650px; width: 115px; transform: rotate(12deg); }
+.neg-vacio2 { bottom: 30px; left: 520px; width: 115px; transform: rotate(-8deg); }
+
+.relicario-asomando {
+    position: absolute;
+    top: 210px;
+    left: 520px;
+    width: 140px;
+    z-index: 4;
+    transform: rotate(-6deg);
+    transition: transform 0.25s ease, z-index 0s;
 }
+
+.relicario-asomando .dije-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(4px 10px 10px rgba(0, 0, 0, 0.5));
+}
+
+.relicario-asomando:hover {
+    z-index: 50 !important;
+    transform: scale(1.15) rotate(0deg) !important;
+}
+
 /* ==========================================
-   COLLAR
+   COLLAR WESTWOOD 
 ========================================== */
 .dije-colgado {
     position: absolute;
     top: 50px;
     right: -20px;
     width: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 12;
+    transition: transform 0.25s ease;
+}
+
+.dije-colgado .dije-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: -6px;
+    filter: drop-shadow(5px 12px 10px rgba(0, 0, 0, 0.55));
+}
+
+.dije-colgado:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 50 !important;
+}
+
+/* ==========================================
+   OBJETOS Y POLAROIDS
+========================================== */
+.objeto {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), z-index 0s;
     z-index: 10;
+}
+
+.polaroid {
+    background: #fdfbf7;
+    padding: 10px 10px 15px 10px;
+    border: 1px solid #d4ceb8;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 180px;
+    text-align: center;
+}
+
+.polaroid .foto {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.12) contrast(1.05);
+}
+
+.titulo-polaroid {
+    font-family: 'Cedarville Cursive', cursive;
+    font-size: 1.1em;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #222;
+}
+
+.pin {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: auto;
+    z-index: 20;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.4));
+}
+
+a.objeto:hover, .objeto:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 50 !important;
+}
+
+a.objeto:hover .polaroid, .objeto:hover .polaroid {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   ORDEN Y ROTACIONES ORIGINALES (DESKTOP)
+========================================== */
+.arbol        { order: 2;  transform: translate(10px, -15px) rotate(6deg); z-index: 6; }
+.fichin       { order: 3;  transform: translate(-15px, 25px) rotate(-5deg); z-index: 8; }
+.beso1        { order: 4;  transform: translate(20px, -30px) rotate(-7deg); z-index: 7; }
+.tacita       { order: 5;  transform: translate(-10px, 40px) rotate(8deg); z-index: 9; }
+.casamiento   { order: 6;  transform: translate(15px, -20px) rotate(-4deg); z-index: 6; }
+.cenicero     { order: 7;  transform: translate(-25px, 30px) rotate(6deg); z-index: 10; }
+.beso2        { order: 9;  transform: translate(30px, 20px) rotate(7deg); z-index: 7; }
+.entrada      { order: 10; transform: translate(-20px, -25px) rotate(-6deg); z-index: 9; }
+.cinefoto     { order: 11; transform: translate(15px, 35px) rotate(5deg); z-index: 6; }
+.libro        { order: 12; transform: translate(-10px, -15px) rotate(8deg); z-index: 8; }
+.llave        { order: 13; transform: translate(25px, 45px) rotate(-7deg); z-index: 11; }
+.slayfoto     { order: 14; transform: translate(-15px, -10px) rotate(-4deg); z-index: 7; }
+.vhs          { order: 15; transform: translate(20px, 20px) rotate(6deg); z-index: 10; }
+.entradas     { order: 16; }
+
+/* ==========================================
+   BOTÓN ENTRADAS
+========================================== */
+.entradas {
+    display: block;
+    background: #8b0000;
+    color: #f3ead7;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 22px;
+    font-weight: bold;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    border: 2px dashed #f3ead7;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transform: rotate(-1deg);
+    transition: all 0.2s ease;
+    z-index: 10;
+    flex-basis: 100%;
+    max-width: 280px;
+    margin-top: 50px;
+}
+
+.entradas:hover {
+    background: #a00000;
+    transform: scale(1.05) rotate(0deg);
 }
 
 /* ==========================================
@@ -163,7 +301,6 @@ body {
     background-color: #8c6747;
     color: #f3ead7;
 }
-
 ::-moz-selection {
     background-color: #8c6747;
     color: #f3ead7;
@@ -176,69 +313,88 @@ body {
     scrollbar-width: thin;
     scrollbar-color: #3d2612 #1a110b;
 }
-
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
-
 ::-webkit-scrollbar-track {
     background: #1a110b;
     border-radius: 4px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8);
 }
-
 ::-webkit-scrollbar-thumb {
     background: #3d2612;
     border: 1px solid #8c6747;
     border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: #8c6747;
     cursor: pointer;
 }
-
 ::-webkit-scrollbar-corner {
     background: #111111;
 }
 
 /* ==========================================
-   AJUSTES EXCLUSIVOS PARA MÓVILES
+   RESPONSIVE (EXCLUSIVO MOBILE)
 ========================================== */
 @media (max-width: 768px) {
+    .negativo-tira, 
+    .negativo-principal, 
+    .relicario-asomando { 
+        display: none; 
+    }
+    
     .tablero {
-        /* Cambia a columna vertical para pantallas pequeñas */
         flex-direction: column !important;
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        align-items: center !important;
-        gap: 30px !important;
-        padding: 40px 20px !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important; 
+        padding: 25px 12px;
+        gap: 18px 0px;
+        border-width: 6px;
     }
 
-    /* Convertir posicionamiento absoluto a relativo para evitar solapamientos en vertical */
-    .negativo-principal,
-    .negativo-tira,
+    /* El collar se integra a la fila en celulares */
     .dije-colgado {
         position: relative !important;
         top: auto !important;
-        left: auto !important;
         right: auto !important;
-        bottom: auto !important;
+        width: 140px;
+        order: 8;
+    }
+    
+    .polaroid {
+        width: 145px;
+        padding: 8px 6px 12px 6px;
     }
 
-    /* ORDEN DE INTERCALACIÓN (Ajusta los nombres de clase según tu HTML) */
-    .expediente { order: 1 !important; }
+    .polaroid .foto {
+        height: 120px;
+    }
+
+    .titulo-polaroid {
+        font-size: 0.85em;
+    }
     
-    .polaroid-1, .foto-1   { order: 2 !important; transform: rotate(-3deg) !important; }
-    .cancion-1, .entrada-1 { order: 3 !important; }
-    
-    .polaroid-2, .foto-2   { order: 4 !important; transform: rotate(4deg) !important; }
-    .cancion-2, .entrada-2 { order: 5 !important; }
-    
-    .neg-mea, .dije-colgado { order: 6 !important; }
-    
-    .polaroid-3, .foto-3   { order: 7 !important; transform: rotate(-2deg) !important; }
-    .cancion-3, .entrada-3 { order: 8 !important; }
+    .expediente {
+        padding: 20px 15px;
+        margin-bottom: 25px;
+        order: 1;
+    }
+
+    /* ORDEN Y POSICIONES CORRECTAS PARA TUS ELEMENTOS */
+    .fichin       { order: 2;  transform: translate(-18px, 0px) rotate(-5deg); }
+    .arbol        { order: 3;  transform: translate(18px, -5px) rotate(6deg); }
+    .tacita       { order: 4;  transform: translate(-15px, 0px) rotate(5deg); }
+    .beso1        { order: 5;  transform: translate(20px, -5px) rotate(-6deg); }
+    .cenicero     { order: 6;  transform: translate(-18px, 0px) rotate(6deg); }
+    .casamiento   { order: 7;  transform: translate(15px, -5px) rotate(-4deg); }
+    .entrada      { order: 9;  transform: translate(-20px, 0px) rotate(-5deg); }
+    .beso2        { order: 10; transform: translate(18px, -5px) rotate(6deg); }
+    .libro        { order: 11; transform: translate(-15px, 0px) rotate(7deg); }
+    .cinefoto     { order: 12; transform: translate(20px, -5px) rotate(-5deg); }
+    .llave        { order: 13; transform: translate(-18px, 0px) rotate(-6deg); }
+    .slayfoto     { order: 14; transform: translate(15px, -5px) rotate(4deg); }
+    .vhs          { order: 15; transform: translate(-12px, 0px) rotate(5deg); }
+    .entradas     { order: 16; margin-top: 15px; }
 }
