@@ -31,7 +31,7 @@
         }
 
         /* ==========================================
-           TABLERO DE CORCHO (FORMATO VERTICAL)
+           TABLERO DE CORCHO
         ========================================== */
         .tablero {
             position: relative;
@@ -43,7 +43,6 @@
             border-radius: 4px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.5);
 
-            /* FLUJO VERTICAL CON WRAP */
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -56,7 +55,6 @@
             overflow-y: visible;
         }
 
-        /* RESPETAR TAMAÑOS EN EL GRID */
         .expediente, 
         .objeto, 
         .dije-colgado, 
@@ -78,7 +76,8 @@
             transform: rotate(-1.5deg);
             margin-bottom: 40px;
             z-index: 5;
-            flex-basis: 100%; /* Forzar encabezado arriba */
+            flex-basis: 100%;
+            order: 1; /* Posición Desktop */
         }
 
         .expediente h1 {
@@ -108,7 +107,7 @@
         }
 
         /* ==========================================
-           NEGATIVOS (FLOTANTES Y SUPERPUESTOS)
+           NEGATIVOS & RELICARIO
         ========================================== */
         .negativo-principal {
             position: absolute;
@@ -139,15 +138,11 @@
             filter: drop-shadow(2px 6px 10px rgba(0, 0, 0, 0.45));
         }
 
-        /* Posiciones libres para negativos */
         .neg-mea    { top: 40px;  left: 20px;  width: 120px; transform: rotate(-12deg); }
         .neg-perm   { top: 350px; left: 300px; width: 110px; transform: rotate(15deg); }
         .neg-vacio1 { top: 100px; right: 260px; width: 115px; transform: rotate(-8deg); }
         .neg-vacio2 { bottom: 30px; left: 520px; width: 220px; transform: rotate(82deg); }
 
-        /* ==========================================
-           RELICARIO ASOMANDO
-        ========================================== */
         .relicario-asomando {
             position: absolute;
             top: 210px;
@@ -245,7 +240,6 @@
             filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.4));
         }
 
-        /* Hover general */
         a.objeto:hover, .objeto:hover {
             transform: scale(1.1) rotate(0deg) !important;
             z-index: 50 !important;
@@ -256,25 +250,23 @@
         }
 
         /* ==========================================
-           DESORDEN Y DESPLAZAMIENTOS DESK
+           ORDEN ORIGINAL Y ROTACIONES DESKTOP
         ========================================== */
-        .arbol        { transform: translate(10px, -15px) rotate(6deg); z-index: 6; }
-        .fichin       { transform: translate(-15px, 25px) rotate(-5deg); z-index: 8; }
-        .beso1        { transform: translate(20px, -30px) rotate(-7deg); z-index: 7; }
-        .tacita       { transform: translate(-10px, 40px) rotate(8deg); z-index: 9; }
-
-        .casamiento   { transform: translate(15px, -20px) rotate(-4deg); z-index: 6; }
-        .cenicero     { transform: translate(-25px, 30px) rotate(6deg); z-index: 10; }
-        .westwood-oro { transform: translate(5px, -10px) rotate(-8deg); z-index: 12; }
-        .beso2        { transform: translate(30px, 20px) rotate(7deg); z-index: 7; }
-
-        .entrada      { transform: translate(-20px, -25px) rotate(-6deg); z-index: 9; }
-        .cinefoto     { transform: translate(15px, 35px) rotate(5deg); z-index: 6; }
-        .libro        { transform: translate(-10px, -15px) rotate(8deg); z-index: 8; }
-        .llave        { transform: translate(25px, 45px) rotate(-7deg); z-index: 11; }
-
-        .slayfoto     { transform: translate(-15px, -10px) rotate(-4deg); z-index: 7; }
-        .vhs          { transform: translate(20px, 20px) rotate(6deg); z-index: 10; }
+        .arbol        { order: 2;  transform: translate(10px, -15px) rotate(6deg); z-index: 6; }
+        .fichin       { order: 3;  transform: translate(-15px, 25px) rotate(-5deg); z-index: 8; }
+        .beso1        { order: 4;  transform: translate(20px, -30px) rotate(-7deg); z-index: 7; }
+        .tacita       { order: 5;  transform: translate(-10px, 40px) rotate(8deg); z-index: 9; }
+        .casamiento   { order: 6;  transform: translate(15px, -20px) rotate(-4deg); z-index: 6; }
+        .cenicero     { order: 7;  transform: translate(-25px, 30px) rotate(6deg); z-index: 10; }
+        .westwood-oro { order: 8;  transform: translate(5px, -10px) rotate(-8deg); z-index: 12; }
+        .beso2        { order: 9;  transform: translate(30px, 20px) rotate(7deg); z-index: 7; }
+        .entrada      { order: 10; transform: translate(-20px, -25px) rotate(-6deg); z-index: 9; }
+        .cinefoto     { order: 11; transform: translate(15px, 35px) rotate(5deg); z-index: 6; }
+        .libro        { order: 12; transform: translate(-10px, -15px) rotate(8deg); z-index: 8; }
+        .llave        { order: 13; transform: translate(25px, 45px) rotate(-7deg); z-index: 11; }
+        .slayfoto     { order: 14; transform: translate(-15px, -10px) rotate(-4deg); z-index: 7; }
+        .vhs          { order: 15; transform: translate(20px, 20px) rotate(6deg); z-index: 10; }
+        .entradas     { order: 16; }
 
         /* ==========================================
            BOTÓN ENTRADAS
@@ -305,7 +297,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE (DESORDEN EN PANTALLAS PEQUEÑAS)
+           RESPONSIVE (SOLO CAMBIA EN CELULAR)
         ========================================== */
         @media (max-width: 768px) {
             .negativo-tira, 
@@ -336,26 +328,25 @@
             .expediente {
                 padding: 20px 15px;
                 margin-bottom: 20px;
+                order: 1;
             }
 
-            /* MANTENER DESORDEN ADAPTADO A PANTALLAS PEQUEÑAS */
-            .arbol        { transform: translate(4px, -8px) rotate(5deg); }
-            .fichin       { transform: translate(-8px, 12px) rotate(-6deg); }
-            .beso1        { transform: translate(10px, -12px) rotate(-5deg); }
-            .tacita       { transform: translate(-6px, 18px) rotate(7deg); }
-
-            .casamiento   { transform: translate(8px, -10px) rotate(-4deg); }
-            .cenicero     { transform: translate(-12px, 14px) rotate(6deg); }
-            .westwood-oro { transform: translate(2px, -6px) rotate(-7deg); width: 100px; }
-            .beso2        { transform: translate(12px, 10px) rotate(6deg); }
-
-            .entrada      { transform: translate(-10px, -12px) rotate(-5deg); }
-            .cinefoto     { transform: translate(8px, 16px) rotate(4deg); }
-            .libro        { transform: translate(-6px, -8px) rotate(7deg); }
-            .llave        { transform: translate(12px, 18px) rotate(-6deg); }
-
-            .slayfoto     { transform: translate(-8px, -6px) rotate(-4deg); }
-            .vhs          { transform: translate(10px, 10px) rotate(5deg); }
+            /* REORDENADO INTERCALADO EXCLUSIVO PARA MOBILE */
+            .fichin       { order: 2;  transform: translate(-5px, 8px) rotate(-6deg); }
+            .arbol        { order: 3;  transform: translate(6px, -10px) rotate(5deg); }
+            .tacita       { order: 4;  transform: translate(-6px, 12px) rotate(6deg); }
+            .beso1        { order: 5;  transform: translate(8px, -10px) rotate(-5deg); }
+            .cenicero     { order: 6;  transform: translate(-8px, 10px) rotate(5deg); }
+            .casamiento   { order: 7;  transform: translate(6px, -8px) rotate(-4deg); }
+            .westwood-oro { order: 8;  transform: translate(2px, -5px) rotate(-7deg); width: 100px; }
+            .entrada      { order: 9;  transform: translate(-8px, -10px) rotate(-5deg); }
+            .beso2        { order: 10; transform: translate(10px, 8px) rotate(6deg); }
+            .libro        { order: 11; transform: translate(-5px, -6px) rotate(7deg); }
+            .cinefoto     { order: 12; transform: translate(6px, 12px) rotate(-4deg); }
+            .llave        { order: 13; transform: translate(-8px, 10px) rotate(-6deg); }
+            .slayfoto     { order: 14; transform: translate(5px, -8px) rotate(4deg); }
+            .vhs          { order: 15; transform: translate(-4px, 8px) rotate(5deg); }
+            .entradas     { order: 16; }
         }
     </style>
 </head>
@@ -509,6 +500,11 @@
         <a class="entradas" href="https://ccmatienzo.com.ar/event/111516-la-fatal-1508" target="_blank" rel="noopener noreferrer">
             15 · AGOSTO<br>CC MATIENZO
         </a>
+
+    </main>
+
+</body>
+</html>
 
     </main>
 
