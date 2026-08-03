@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archivo 05/07 - Permanencia | Calamidad</title>
 
-    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-    <!-- Estilos compartidos -->
     <link rel="stylesheet" href="css/cancion.css">
 
     <style>
@@ -19,26 +17,31 @@
             position: relative;
         }
 
-        /* Objeto flotante: Tacita rota */
+        /* Referencia específica para el encabezado donde se ubicará la taza */
+        .encabezado-archivo {
+            position: relative;
+        }
+
+        /* Objeto flotante: Tacita rota ubicada a la derecha del texto */
         .tacita-rota {
             position: absolute;
-            top: 25px;            /* Distancia desde arriba */
-            right: -30px;         /* Cambiá a 'left' o ajustá el valor para moverla horizontalmente */
-            width: 140px;         /* Tamaño del PNG */
+            top: 5px;             /* Distancia desde el borde superior del encabezado */
+            right: 15px;          /* Ubicación a la derecha del texto */
+            width: 120px;         /* Tamaño proporcional para que luzca bien sobre el papel */
             height: auto;
             z-index: 10;
-            transform: rotate(12deg);
-            filter: drop-shadow(4px 8px 10px rgba(0, 0, 0, 0.45));
-            pointer-events: none; /* Permite hacer clic a través de la imagen si tapara texto o links */
+            transform: rotate(8deg);
+            filter: drop-shadow(4px 8px 10px rgba(0, 0, 0, 0.35));
+            pointer-events: none; /* Permite hacer clic a través de la imagen si tapara texto */
             transition: transform 0.3s ease;
         }
 
         /* Ajuste para pantallas pequeñas */
         @media (max-width: 768px) {
             .tacita-rota {
-                width: 90px;
-                top: 10px;
-                right: -10px;
+                width: 80px;
+                top: 0px;
+                right: 5px;
             }
         }
     </style>
@@ -48,10 +51,9 @@
     <main class="contenedor">
         <article class="archivo">
 
-            <!-- Elemento gráfico superpuesto -->
-            <img class="tacita-rota" src="img/tacitarota.png" alt="Tacita rota de cerámica">
-
             <header class="encabezado-archivo">
+                <img class="tacita-rota" src="img/tacitarota.png" alt="Tacita rota de cerámica">
+
                 <span class="codigo-archivo">ARCHIVO RECUPERADO 05/07</span>
                 <h1>PERMANENCIA</h1>
             </header>
