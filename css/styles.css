@@ -139,8 +139,12 @@ body {
 .neg-mea    { top: 380px; left: 10px;  width: 120px; transform: rotate(-12deg); } /* Negativo 1 (abajo izquierda) */
 .neg-perm   { top: 350px; left: 300px; width: 110px; transform: rotate(15deg); }
 .neg-vacio1 { top: 280px; left: 650px; width: 115px; transform: rotate(12deg); }  /* Negativo 2 (abajo a la derecha) */
-.neg-vacio2 { bottom: 30px; left: 520px; }
-
+.neg-vacio2 { 
+    bottom: 30px; 
+    left: 520px; 
+    width: 110px; 
+    transform: rotate(-8deg); 
+}
 /* ==========================================
    COLLAR
 ========================================== */
