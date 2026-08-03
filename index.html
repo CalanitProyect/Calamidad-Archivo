@@ -256,7 +256,7 @@
         }
 
         /* ==========================================
-           DESORDEN Y DESPLAZAMIENTOS PRONUNCIADOS
+           DESORDEN Y DESPLAZAMIENTOS DESK
         ========================================== */
         .arbol        { transform: translate(10px, -15px) rotate(6deg); z-index: 6; }
         .fichin       { transform: translate(-15px, 25px) rotate(-5deg); z-index: 8; }
@@ -305,7 +305,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE (MÓVILES)
+           RESPONSIVE (DESORDEN EN PANTALLAS PEQUEÑAS)
         ========================================== */
         @media (max-width: 768px) {
             .negativo-tira, 
@@ -315,22 +315,22 @@
             }
             
             .tablero {
-                padding: 30px 15px;
-                gap: 25px 10px;
-                border-width: 8px;
+                padding: 25px 10px;
+                gap: 20px 8px;
+                border-width: 6px;
             }
             
             .polaroid {
-                width: 140px;
-                padding: 8px 8px 12px 8px;
+                width: 135px;
+                padding: 8px 6px 12px 6px;
             }
 
             .polaroid .foto {
-                height: 120px;
+                height: 115px;
             }
 
             .titulo-polaroid {
-                font-size: 0.85em;
+                font-size: 0.8em;
             }
             
             .expediente {
@@ -338,10 +338,24 @@
                 margin-bottom: 20px;
             }
 
-            /* Suavizar traslaciones en pantallas pequeñas */
-            .objeto, .dije-colgado {
-                transform: scale(0.9) translate(0, 0) !important;
-            }
+            /* MANTENER DESORDEN ADAPTADO A PANTALLAS PEQUEÑAS */
+            .arbol        { transform: translate(4px, -8px) rotate(5deg); }
+            .fichin       { transform: translate(-8px, 12px) rotate(-6deg); }
+            .beso1        { transform: translate(10px, -12px) rotate(-5deg); }
+            .tacita       { transform: translate(-6px, 18px) rotate(7deg); }
+
+            .casamiento   { transform: translate(8px, -10px) rotate(-4deg); }
+            .cenicero     { transform: translate(-12px, 14px) rotate(6deg); }
+            .westwood-oro { transform: translate(2px, -6px) rotate(-7deg); width: 100px; }
+            .beso2        { transform: translate(12px, 10px) rotate(6deg); }
+
+            .entrada      { transform: translate(-10px, -12px) rotate(-5deg); }
+            .cinefoto     { transform: translate(8px, 16px) rotate(4deg); }
+            .libro        { transform: translate(-6px, -8px) rotate(7deg); }
+            .llave        { transform: translate(12px, 18px) rotate(-6deg); }
+
+            .slayfoto     { transform: translate(-8px, -6px) rotate(-4deg); }
+            .vhs          { transform: translate(10px, 10px) rotate(5deg); }
         }
     </style>
 </head>
