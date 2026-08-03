@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archivo Calamidad</title>
 
-    <!-- Fuentes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Special+Elite&display=swap" rel="stylesheet">
@@ -27,40 +26,42 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             padding: 20px 10px;
         }
 
         /* ==========================================
-           TABLERO DE CORCHO (FILA ÚNICA REAL CON SCROLL)
+           TABLERO DE CORCHO (FORMATO VERTICAL)
         ========================================== */
         .tablero {
             position: relative;
             width: 100%;
-            min-height: 85vh;
+            max-width: 1100px;
+            min-height: 100vh;
             background: url('img/corcho.jpg') #8c6747 center/cover repeat;
             border: 12px solid #3d2612;
             border-radius: 4px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.5);
 
-            /* FORZAR FILA Y SCROLL HORIZONTAL */
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            justify-content: flex-start !important;
-            align-items: center !important;
-            gap: 25px !important;
-            padding: 60px 40px !important;
-            overflow-x: auto !important;
-            overflow-y: hidden !important;
+            /* FLUJO VERTICAL CON WRAP */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 35px 25px;
+            padding: 60px 40px;
+            margin: 0 auto;
+            overflow-x: hidden;
+            overflow-y: visible;
         }
 
-        /* OBLIGAR A RESPETAR EL TAMAÑO Y EVITAR QUE SE TIREN ABAJO */
+        /* RESPETAR TAMAÑOS EN EL GRID */
         .expediente, 
         .objeto, 
         .dije-colgado, 
         .entradas {
-            flex-shrink: 0 !important;
+            flex-shrink: 0;
         }
 
         /* ==========================================
@@ -69,14 +70,15 @@
         .expediente {
             position: relative;
             width: 100%;
-            max-width: 420px;
+            max-width: 500px;
             background: #f3ead7;
             padding: 30px 25px;
             border: 1px solid #9d927f;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            transform: rotate(-1deg);
-            margin-bottom: 10px;
+            transform: rotate(-1.5deg);
+            margin-bottom: 40px;
             z-index: 5;
+            flex-basis: 100%; /* Forzar encabezado arriba */
         }
 
         .expediente h1 {
@@ -253,28 +255,27 @@
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
 
-      /* ==========================================
-   VARIACIONES Y ALTURAS EN EL TABLERO
-========================================== */
-/* Alineaciones verticales aleatorias dentro de la tira */
-.arbol       { align-self: flex-start; margin-top: 15px; transform: rotate(4deg); }
-.beso1       { align-self: flex-end; margin-bottom: 25px; transform: rotate(-3deg); }
-.beso2       { align-self: flex-start; margin-top: 40px; transform: rotate(5deg); }
-.casamiento  { align-self: center; transform: translateY(-30px) rotate(-2deg); }
-.cinefoto    { align-self: flex-end; margin-bottom: 50px; transform: rotate(3deg); }
-.slayfoto    { align-self: flex-start; margin-top: 10px; transform: rotate(-5deg); }
+        /* ==========================================
+           DESORDEN Y DESPLAZAMIENTOS PRONUNCIADOS
+        ========================================== */
+        .arbol        { transform: translate(10px, -15px) rotate(6deg); z-index: 6; }
+        .fichin       { transform: translate(-15px, 25px) rotate(-5deg); z-index: 8; }
+        .beso1        { transform: translate(20px, -30px) rotate(-7deg); z-index: 7; }
+        .tacita       { transform: translate(-10px, 40px) rotate(8deg); z-index: 9; }
 
-/* Pistas / Canciones desalineadas */
-.fichin      { align-self: flex-end; margin-bottom: 10px; transform: rotate(2deg); }
-.tacita      { align-self: flex-start; margin-top: 35px; transform: rotate(-4deg); }
-.cenicero    { align-self: flex-end; margin-bottom: 30px; transform: rotate(3deg); }
-.entrada     { align-self: flex-start; margin-top: 20px; transform: rotate(-2deg); }
-.libro       { align-self: flex-end; margin-bottom: 15px; transform: rotate(5deg); }
-.llave       { align-self: flex-start; margin-top: 50px; transform: rotate(-3deg); }
-.vhs         { align-self: center; transform: translateY(20px) rotate(4deg); }
+        .casamiento   { transform: translate(15px, -20px) rotate(-4deg); z-index: 6; }
+        .cenicero     { transform: translate(-25px, 30px) rotate(6deg); z-index: 10; }
+        .westwood-oro { transform: translate(5px, -10px) rotate(-8deg); z-index: 12; }
+        .beso2        { transform: translate(30px, 20px) rotate(7deg); z-index: 7; }
 
-/* Accesorios */
-.westwood-oro { align-self: flex-start; margin-top: 5px; transform: rotate(4deg); }
+        .entrada      { transform: translate(-20px, -25px) rotate(-6deg); z-index: 9; }
+        .cinefoto     { transform: translate(15px, 35px) rotate(5deg); z-index: 6; }
+        .libro        { transform: translate(-10px, -15px) rotate(8deg); z-index: 8; }
+        .llave        { transform: translate(25px, 45px) rotate(-7deg); z-index: 11; }
+
+        .slayfoto     { transform: translate(-15px, -10px) rotate(-4deg); z-index: 7; }
+        .vhs          { transform: translate(20px, 20px) rotate(6deg); z-index: 10; }
+
         /* ==========================================
            BOTÓN ENTRADAS
         ========================================== */
@@ -292,8 +293,10 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
             transform: rotate(-1deg);
             transition: all 0.2s ease;
-            align-self: center;
             z-index: 10;
+            flex-basis: 100%;
+            max-width: 280px;
+            margin-top: 50px;
         }
 
         .entradas:hover {
@@ -312,9 +315,9 @@
             }
             
             .tablero {
-                padding: 25px 10px;
-                gap: 20px 10px;
-                border-width: 6px;
+                padding: 30px 15px;
+                gap: 25px 10px;
+                border-width: 8px;
             }
             
             .polaroid {
@@ -332,6 +335,12 @@
             
             .expediente {
                 padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            /* Suavizar traslaciones en pantallas pequeñas */
+            .objeto, .dije-colgado {
+                transform: scale(0.9) translate(0, 0) !important;
             }
         }
     </style>
@@ -340,7 +349,6 @@
 
     <main class="tablero">
 
-        <!-- NEGATIVOS Y RELICARIO EN POSICIÓN ABSOLUTA -->
         <div class="negativo-principal">
             <img class="negativo-img" src="img/malditosnegativos.png" alt="Negativo fotográfico">
         </div>
@@ -365,16 +373,10 @@
             <img class="negativo-tira-img" src="img/negvacio2.png" alt="Tira de negativo">
         </div>
 
-        <!-- RELICARIO OCULTO PARCIALMENTE -->
         <div class="relicario-asomando">
             <img class="dije-img" src="img/relicariosii.png" alt="Relicario con foto">
         </div>
 
-        <!-- ==================================================== -->
-        <!-- ELEMENTOS DEL TABLERO EN FLUJO -->
-        <!-- ==================================================== -->
-
-        <!-- EXPEDIENTE PRINCIPAL -->
         <article class="expediente">
             <div class="cinta"></div>
             <h1>ARCHIVO CALAMIDAD</h1>
@@ -385,7 +387,6 @@
             </p>
         </article>
 
-        <!-- FOTO DECORATIVA -->
         <div class="objeto arbol">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -393,7 +394,6 @@
             </div>
         </div>
 
-        <!-- LINK CANCIÓN 01 -->
         <a href="augurio.html" class="objeto fichin">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -402,7 +402,6 @@
             </div>
         </a>
 
-        <!-- FOTO DECORATIVA -->
         <div class="objeto beso1">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -410,7 +409,6 @@
             </div>
         </div>
 
-        <!-- LINK CANCIÓN 02 -->
         <a href="exhalada.html" class="objeto tacita">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -419,7 +417,6 @@
             </div>
         </a>
 
-        <!-- FOTO DECORATIVA -->
         <div class="objeto casamiento">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -427,7 +424,6 @@
             </div>
         </div>
 
-        <!-- LINK CANCIÓN 03 -->
         <a href="raspandoelfondo.html" class="objeto cenicero">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -436,13 +432,11 @@
             </div>
         </a>
 
-        <!-- COLLAR WESTWOOD DORADO COLGADO -->
         <div class="dije-colgado westwood-oro">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <img class="dije-img" src="img/westwooddorado.png" alt="Collar de oro Westwood">
         </div>
 
-        <!-- FOTO DECORATIVA -->
         <div class="objeto beso2">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -450,7 +444,6 @@
             </div>
         </div>
 
-        <!-- LINK CANCIÓN 04 -->
         <a href="olvido.html" class="objeto entrada">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -459,7 +452,6 @@
             </div>
         </a>
 
-        <!-- FOTO DECORATIVA -->
         <div class="objeto cinefoto">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -468,7 +460,6 @@
             </div>
         </div>
 
-        <!-- LINK CANCIÓN 05 -->
         <a href="permanencia.html" class="objeto libro">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -477,7 +468,6 @@
             </div>
         </a>
 
-        <!-- LINK CANCIÓN 06 -->
         <a href="mea-culpa.html" class="objeto llave">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -486,7 +476,6 @@
             </div>
         </a>
 
-        <!-- FOTO DECORATIVA (Corregida la etiqueta de cierre </div>) -->
         <div class="objeto slayfoto">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -495,7 +484,6 @@
             </div>
         </div>
 
-        <!-- LINK CANCIÓN 07 -->
         <a href="letargia.html" class="objeto vhs">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
             <div class="polaroid">
@@ -504,7 +492,6 @@
             </div>
         </a>
 
-        <!-- BOTÓN ENTRADAS -->
         <a class="entradas" href="https://ccmatienzo.com.ar/event/111516-la-fatal-1508" target="_blank" rel="noopener noreferrer">
             15 · AGOSTO<br>CC MATIENZO
         </a>
