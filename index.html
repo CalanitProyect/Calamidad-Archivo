@@ -26,40 +26,41 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center; /* Cambiado a center para escritorio */
             padding: 20px 10px;
         }
 
         /* ==========================================
-           TABLERO DE CORCHO
+           TABLERO DE CORCHO (SCROLL HORIZONTAL)
         ========================================== */
         .tablero {
             position: relative;
             width: 100%;
             max-width: 1100px;
-            min-height: 100vh;
+            min-height: 85vh;
             background: url('img/corcho.jpg') #8c6747 center/cover repeat;
             border: 12px solid #3d2612;
             border-radius: 4px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.5);
 
+            /* REGLAS CORREGIDAS PARA SCROLL HORIZONTAL */
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 35px 25px;
+            flex-wrap: nowrap; /* Evita que se vayan para abajo */
+            justify-content: flex-start;
+            align-items: center;
+            gap: 25px;
             padding: 60px 40px;
             margin: 0 auto;
-            overflow-x: hidden;
-            overflow-y: visible;
+            overflow-x: auto; /* Activa la barra horizontal */
+            overflow-y: hidden; /* Oculta la barra vertical */
         }
 
         .expediente, 
         .objeto, 
         .dije-colgado, 
         .entradas {
-            flex-shrink: 0;
+            flex-shrink: 0; /* Evita que se aplasten */
         }
 
         /* ==========================================
@@ -68,15 +69,13 @@
         .expediente {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 420px;
             background: #f3ead7;
             padding: 30px 25px;
             border: 1px solid #9d927f;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             transform: rotate(-1.5deg);
-            margin-bottom: 40px;
             z-index: 5;
-            flex-basis: 100%;
             order: 1; /* Posición Desktop */
         }
 
@@ -138,9 +137,9 @@
             filter: drop-shadow(2px 6px 10px rgba(0, 0, 0, 0.45));
         }
 
-        .neg-mea    { top: 40px;  left: 20px;  width: 120px; transform: rotate(-12deg); }
+        .neg-mea    { top: 380px; left: 10px;  width: 120px; transform: rotate(-12deg); } /* Ajustado */
         .neg-perm   { top: 350px; left: 300px; width: 110px; transform: rotate(15deg); }
-        .neg-vacio1 { top: 100px; right: 260px; width: 115px; transform: rotate(-8deg); }
+        .neg-vacio1 { top: 280px; left: 650px; width: 115px; transform: rotate(12deg); }
         .neg-vacio2 { bottom: 30px; left: 520px; width: 220px; transform: rotate(82deg); }
 
         .relicario-asomando {
@@ -286,9 +285,6 @@
             transform: rotate(-1deg);
             transition: all 0.2s ease;
             z-index: 10;
-            flex-basis: 100%;
-            max-width: 280px;
-            margin-top: 50px;
         }
 
         .entradas:hover {
@@ -307,10 +303,16 @@
             }
             
             .tablero {
+                /* ¡REGLAS CLAVE AGREGADAS PARA MÓVIL! */
+                flex-direction: column !important; /* Fuerza la vista vertical */
+                flex-wrap: nowrap !important;
+                overflow-x: hidden !important;
+                overflow-y: auto !important; /* Permite scroll vertical */
+                align-items: center !important;
+
                 padding: 25px 12px;
                 gap: 18px 0px;
                 border-width: 6px;
-                justify-content: center;
             }
             
             .polaroid {
@@ -347,7 +349,7 @@
             .llave        { order: 13; transform: translate(-18px, 0px) rotate(-6deg); }
             .slayfoto     { order: 14; transform: translate(15px, -5px) rotate(4deg); }
             .vhs          { order: 15; transform: translate(-12px, 0px) rotate(5deg); }
-            .entradas     { order: 16; }
+            .entradas     { order: 16; margin-top: 15px; }
         }
     </style>
 </head>
@@ -498,11 +500,4 @@
             </div>
         </a>
 
-        <a class="entradas" href="https://ccmatienzo.com.ar/event/111516-la-fatal-1508" target="_blank" rel="noopener noreferrer">
-            15 · AGOSTO<br>CC MATIENZO
-        </a>
-
-    </main>
-
-</body>
-</html>
+        <a class="entradas" href="https://
