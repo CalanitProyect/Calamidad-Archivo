@@ -136,17 +136,28 @@ body {
 }
 
 /* Ubicaciones de las tiras */
-.neg-mea    { top: 40px;  left: 20px;  width: 120px; transform: rotate(-12deg); }
+.neg-mea    { top: 380px; left: 10px;  width: 120px; transform: rotate(-12deg); } /* <--- Negativo 1 (abajo izquierda) */
 .neg-perm   { top: 350px; left: 300px; width: 110px; transform: rotate(15deg); }
-.neg-vacio1 { top: 100px; right: 260px; width: 115px; transform: rotate(-8deg); }
+.neg-vacio1 { top: 280px; left: 650px; width: 115px; transform: rotate(12deg); }  /* <--- Negativo 2 movido abajo a la derecha */
 .neg-vacio2 { bottom: 30px; left: 520px; }
+
+/* ==========================================
+   COLLAR
+========================================== */
+.dije-colgado {
+    position: absolute;
+    top: 50px;
+    right: -20px;
+    width: 210px;
+    z-index: 10;
+}
+
 /* ==========================================
    SELECCIÓN DE TEXTO
 ========================================== */
-/* Color de fondo beige envejecido y texto oscuro/casi negro */
 ::selection {
-    background-color: #8c6747; /* Tono cálido de corcho/cuero */
-    color: #f3ead7;        /* Texto del tono del papel envejecido */
+    background-color: #8c6747;
+    color: #f3ead7;
 }
 
 ::-moz-selection {
@@ -155,44 +166,35 @@ body {
 }
 
 /* ==========================================
-   SCROLLBAR PERSONALIZADA (Navegadores Modernos / Chrome, Edge, Safari, Firefox)
+   SCROLLBAR PERSONALIZADA
 ========================================== */
-
-/* 1. Para Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #3d2612 #1a110b; /* [Barra Deslizante] [Fondo/Track] */
+    scrollbar-color: #3d2612 #1a110b;
 }
 
-/* 2. Para Webkit (Chrome, Edge, Safari, Opera) */
-
-/* Ancho y alto del scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;  /* Scroll vertical */
-    height: 10px; /* Scroll horizontal (tu tablero de corcho) */
+    width: 10px;
+    height: 10px;
 }
 
-/* Fondo de la barra (el canal por donde se mueve) */
 ::-webkit-scrollbar-track {
-    background: #1a110b; /* Marrón ultra oscuro para encajar con la madera */
+    background: #1a110b;
     border-radius: 4px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
-/* El tirador/barrita que arrastras */
 ::-webkit-scrollbar-thumb {
-    background: #3d2612; /* Mismo tono del marco de madera del tablero */
-    border: 1px solid #8c6747; /* Borde sutíl tono corcho */
+    background: #3d2612;
+    border: 1px solid #8c6747;
     border-radius: 4px;
 }
 
-/* Al pasar el mouse sobre el tirador */
 ::-webkit-scrollbar-thumb:hover {
-    background: #8c6747; /* Resalta en tono corcho cálido */
+    background: #8c6747;
     cursor: pointer;
 }
 
-/* Las esquinas donde se cruzan scroll horizontal y vertical */
 ::-webkit-scrollbar-corner {
     background: #111111;
 }
