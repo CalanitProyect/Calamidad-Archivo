@@ -21,27 +21,36 @@ body {
 /* ==========================================
    TABLERO / CORCHO (CONTENEDOR PRINCIPAL)
 ========================================== */
+/* ==========================================
+   TABLERO DE CORCHO (FILA ÚNICA REAL)
+========================================== */
 .tablero {
     position: relative;
     width: 100%;
-    max-width: 100%; /* Permite aprovechar todo el ancho */
     min-height: 85vh;
     background: url('img/corcho.jpg') #8c6747 center/cover repeat;
     border: 12px solid #3d2612;
     border-radius: 4px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-wrap: nowrap; /* 🔥 Evita que se bajen las fotos */
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    padding: 60px 40px;
-    overflow-x: auto; /* 🔥 Habilita scroll horizontal si no entran */
+
+    /* FORZAR FILA Y SCROLL HORIZONTAL */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 25px !important;
+    padding: 60px 40px !important;
+    overflow-x: auto !important; /* Muestra barra de scroll si no entran */
+    overflow-y: hidden !important;
 }
 
-/* Ocultamos la etiqueta img de corcho si hubiere quedado en el HTML */
-.corcho {
-    display: none;
+/* FORZAR A QUE NINGÚN ELEMENTO SE BAJE NI SE ACHIQUE */
+.expediente, 
+.objeto, 
+.dije-colgado, 
+.entradas {
+    flex-shrink: 0 !important; /* 🔥 ESTA ES LA CLAVE: prohíbe que el navegador los tire abajo */
 }
 
 /* ==========================================
