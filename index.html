@@ -253,26 +253,28 @@
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
 
-        /* ==========================================
-           ROTACIONES INDIVIDUALES
-        ========================================== */
-        .arbol { transform: rotate(4deg); }
-        .beso1 { transform: rotate(-3deg); }
-        .beso2 { transform: rotate(5deg); }
-        .casamiento { transform: rotate(-2deg); }
-        .cinefoto { transform: rotate(3deg); }
-        .slayfoto { transform: rotate(-5deg); }
+      /* ==========================================
+   VARIACIONES Y ALTURAS EN EL TABLERO
+========================================== */
+/* Alineaciones verticales aleatorias dentro de la tira */
+.arbol       { align-self: flex-start; margin-top: 15px; transform: rotate(4deg); }
+.beso1       { align-self: flex-end; margin-bottom: 25px; transform: rotate(-3deg); }
+.beso2       { align-self: flex-start; margin-top: 40px; transform: rotate(5deg); }
+.casamiento  { align-self: center; transform: translateY(-30px) rotate(-2deg); }
+.cinefoto    { align-self: flex-end; margin-bottom: 50px; transform: rotate(3deg); }
+.slayfoto    { align-self: flex-start; margin-top: 10px; transform: rotate(-5deg); }
 
-        .fichin { transform: rotate(2deg); }
-        .tacita { transform: rotate(-4deg); }
-        .cenicero { transform: rotate(3deg); }
-        .entrada { transform: rotate(-2deg); }
-        .libro { transform: rotate(5deg); }
-        .llave { transform: rotate(-3deg); }
-        .vhs { transform: rotate(4deg); }
+/* Pistas / Canciones desalineadas */
+.fichin      { align-self: flex-end; margin-bottom: 10px; transform: rotate(2deg); }
+.tacita      { align-self: flex-start; margin-top: 35px; transform: rotate(-4deg); }
+.cenicero    { align-self: flex-end; margin-bottom: 30px; transform: rotate(3deg); }
+.entrada     { align-self: flex-start; margin-top: 20px; transform: rotate(-2deg); }
+.libro       { align-self: flex-end; margin-bottom: 15px; transform: rotate(5deg); }
+.llave       { align-self: flex-start; margin-top: 50px; transform: rotate(-3deg); }
+.vhs         { align-self: center; transform: translateY(20px) rotate(4deg); }
 
-        .westwood-oro { transform: rotate(4deg); }
-
+/* Accesorios */
+.westwood-oro { align-self: flex-start; margin-top: 5px; transform: rotate(4deg); }
         /* ==========================================
            BOTÓN ENTRADAS
         ========================================== */
