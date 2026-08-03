@@ -140,3 +140,59 @@ body {
 .neg-perm   { top: 350px; left: 300px; width: 110px; transform: rotate(15deg); }
 .neg-vacio1 { top: 100px; right: 260px; width: 115px; transform: rotate(-8deg); }
 .neg-vacio2 { bottom: 30px; left: 520px; }
+/* ==========================================
+   SELECCIÓN DE TEXTO
+========================================== */
+/* Color de fondo beige envejecido y texto oscuro/casi negro */
+::selection {
+    background-color: #8c6747; /* Tono cálido de corcho/cuero */
+    color: #f3ead7;        /* Texto del tono del papel envejecido */
+}
+
+::-moz-selection {
+    background-color: #8c6747;
+    color: #f3ead7;
+}
+
+/* ==========================================
+   SCROLLBAR PERSONALIZADA (Navegadores Modernos / Chrome, Edge, Safari, Firefox)
+========================================== */
+
+/* 1. Para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3d2612 #1a110b; /* [Barra Deslizante] [Fondo/Track] */
+}
+
+/* 2. Para Webkit (Chrome, Edge, Safari, Opera) */
+
+/* Ancho y alto del scrollbar */
+::-webkit-scrollbar {
+    width: 10px;  /* Scroll vertical */
+    height: 10px; /* Scroll horizontal (tu tablero de corcho) */
+}
+
+/* Fondo de la barra (el canal por donde se mueve) */
+::-webkit-scrollbar-track {
+    background: #1a110b; /* Marrón ultra oscuro para encajar con la madera */
+    border-radius: 4px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* El tirador/barrita que arrastras */
+::-webkit-scrollbar-thumb {
+    background: #3d2612; /* Mismo tono del marco de madera del tablero */
+    border: 1px solid #8c6747; /* Borde sutíl tono corcho */
+    border-radius: 4px;
+}
+
+/* Al pasar el mouse sobre el tirador */
+::-webkit-scrollbar-thumb:hover {
+    background: #8c6747; /* Resalta en tono corcho cálido */
+    cursor: pointer;
+}
+
+/* Las esquinas donde se cruzan scroll horizontal y vertical */
+::-webkit-scrollbar-corner {
+    background: #111111;
+}
