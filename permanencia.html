@@ -12,11 +12,45 @@
 
     <!-- Estilos compartidos -->
     <link rel="stylesheet" href="css/cancion.css">
+
+    <style>
+        /* Aseguramos que el contenedor del archivo sea el punto de referencia */
+        .archivo {
+            position: relative;
+        }
+
+        /* Objeto flotante: Tacita rota */
+        .tacita-rota {
+            position: absolute;
+            top: 25px;            /* Distancia desde arriba */
+            right: -30px;         /* Cambiá a 'left' o ajustá el valor para moverla horizontalmente */
+            width: 140px;         /* Tamaño del PNG */
+            height: auto;
+            z-index: 10;
+            transform: rotate(12deg);
+            filter: drop-shadow(4px 8px 10px rgba(0, 0, 0, 0.45));
+            pointer-events: none; /* Permite hacer clic a través de la imagen si tapara texto o links */
+            transition: transform 0.3s ease;
+        }
+
+        /* Ajuste para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .tacita-rota {
+                width: 90px;
+                top: 10px;
+                right: -10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <main class="contenedor">
         <article class="archivo">
+
+            <!-- Elemento gráfico superpuesto -->
+            <img class="tacita-rota" src="img/tacitarota.png" alt="Tacita rota de cerámica">
+
             <header class="encabezado-archivo">
                 <span class="codigo-archivo">ARCHIVO RECUPERADO 05/07</span>
                 <h1>PERMANENCIA</h1>
