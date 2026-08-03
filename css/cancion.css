@@ -8,105 +8,118 @@
 }
 
 body {
-    background: #e6dcc6;
+    background: #111111;
     color: #2b2b2b;
     font-family: 'Special Elite', serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 40px 15px;
     line-height: 1.8;
 }
 
 .contenedor {
     width: 100%;
-    max-width: 750px;
+    max-width: 680px;
+    display: flex;
+    justify-content: center;
 }
 
 /* ==========================================
-   HOJA DE EXPEDIENTE / CANCIÓN
+   HOJA DE EXPEDIENTE / ARCHIVO
 ========================================== */
 .archivo {
     position: relative;
+    width: 100%;
     background: #f3ead7;
-    padding: 50px 45px;
+    padding: 50px 40px;
     border: 1px solid #9d927f;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transform: rotate(-0.3deg);
-    overflow: hidden; /* Evita que los elementos se salgan de la hoja */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6),
+                inset 0 0 40px rgba(160, 140, 110, 0.2);
+    transform: rotate(-0.4deg);
 }
 
-/* Textura de papel envejecido */
+/* Cinta adhesiva en la parte superior */
 .archivo::before {
-    content: "";
+    content: '';
     position: absolute;
-    inset: 0;
-    background: url('../img/papel.jpg') no-repeat center center;
-    background-size: cover;
-    opacity: 0.25;
-    pointer-events: none;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(1deg);
+    width: 120px;
+    height: 26px;
+    background: rgba(225, 215, 190, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 5;
 }
 
-/* Asegura que el contenido esté por encima del fondo */
+/* Asegura que el contenido quede por encima del fondo/cinta */
 .archivo > * {
     position: relative;
     z-index: 2;
 }
 
 /* ==========================================
-   TEXTO & LETRA
+   ENCABEZADO
 ========================================== */
 .encabezado-archivo {
     margin-bottom: 30px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid #2b2b2b;
     padding-bottom: 15px;
 }
 
 .codigo-archivo {
-    font-size: 0.85em;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: bold;
     letter-spacing: 2px;
-    opacity: 0.6;
-    display: block;
-    margin-bottom: 5px;
+    color: #8b0000;
+    background: rgba(139, 0, 0, 0.08);
+    padding: 3px 8px;
+    border: 1px dashed #8b0000;
+    margin-bottom: 10px;
 }
 
-h1 {
+.encabezado-archivo h1 {
     font-size: 2.2em;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   LETRA / CONTENIDO DE LA CANCIÓN
+========================================== */
+.letra {
+    font-size: 1.05em;
+    color: #1f1f1f;
 }
 
 .letra p {
-    margin-bottom: 16px;
-    font-size: 1.05em;
+    margin-bottom: 20px;
 }
 
+.letra .firma {
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8b0000;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Estilos adicionales para textos opcionales/perdidos */
 .verso-destacado {
     font-weight: bold;
     letter-spacing: 1px;
 }
 
-.firma {
-    margin-top: 25px;
-    font-style: italic;
-    font-size: 1.1em;
-}
-
-.grito {
-    font-size: 1.18em;
-    margin: 38px 0;
-    letter-spacing: 1px;
-    font-weight: bold;
-}
-
-/* ==========================================
-   TEXTO FRAGMENTADO / PERDIDO
-========================================== */
 .perdido {
-    opacity: 0.5;
+    opacity: 0.55;
     font-style: italic;
-    color: #666;
+    color: #555;
     letter-spacing: 1px;
     margin: 12px 0;
     display: block;
@@ -116,123 +129,66 @@ h1 {
    METADATOS DEL HALLAZGO
 ========================================== */
 .metadatos {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px dashed #ad9f88;
-    font-size: 0.85em;
-    opacity: 0.75;
+    margin-top: 35px;
+    padding: 12px 15px;
+    border-top: 1px dashed #9d927f;
+    font-size: 0.8em;
     line-height: 1.6;
+    color: #444;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 2px;
+}
+
+.metadatos strong {
+    color: #111;
+    letter-spacing: 1px;
 }
 
 /* ==========================================
-   NAVEGACIÓN
+   NAVEGACIÓN / BOTÓN VOLVER
 ========================================== */
 .navegacion {
-    margin-top: 35px;
+    margin-top: 30px;
+    text-align: left;
 }
 
 .boton-volver {
     display: inline-block;
-    color: #222;
+    color: #f3ead7;
+    background: #222222;
     text-decoration: none;
-    font-size: 0.95em;
-    padding: 6px 12px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.3);
+    font-size: 0.85em;
+    padding: 10px 18px;
+    border: 1px solid #444;
+    letter-spacing: 1px;
     transition: all 0.2s ease;
 }
 
 .boton-volver:hover {
-    background: #222;
-    color: #f3ead7;
+    background: #8b0000;
+    color: #ffffff;
+    border-color: #8b0000;
+    transform: translateX(-3px);
 }
 
 /* ==========================================
-   EFECTOS ESPECIALES Y OVERLAYS
-========================================== */
-.cenicero-overlay {
-    position: absolute;
-    width: min(230px, 35vw);
-    right: -10px;
-    bottom: 10%;
-    transform: rotate(-12deg);
-    z-index: 1;
-    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35));
-    pointer-events: none;
-}
-
-.quemadura {
-    position: absolute;
-    width: min(140px, 25vw);
-    height: min(140px, 25vw);
-    right: 10%;
-    bottom: 15%;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(35, 20, 10, 0.7) 0%,
-        rgba(70, 40, 20, 0.45) 18%,
-        rgba(130, 90, 40, 0.20) 40%,
-        transparent 72%
-    );
-    mix-blend-mode: multiply;
-    opacity: 0.55;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.mancha-vino {
-    position: absolute;
-    width: min(170px, 30vw);
-    height: min(170px, 30vw);
-    right: 5%;
-    bottom: 20%;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        transparent 50%,
-        rgba(90, 25, 35, 0.22) 65%,
-        rgba(70, 15, 25, 0.45) 75%,
-        rgba(100, 30, 45, 0.15) 85%,
-        transparent 92%
-    );
-    filter: blur(1px);
-    mix-blend-mode: multiply;
-    opacity: 0.6;
-    pointer-events: none;
-    z-index: 1;
-    transform: rotate(15deg) scaleX(1.08);
-}
-
-/* Control general de imágenes insertadas dentro del archivo */
-.archivo img,
-.ticket,
-.libro {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ==========================================
-   RESPONSIVE (MÓVIL & PANTALLAS PEQUEÑAS)
+   RESPONSIVE (MÓVIL)
 ========================================== */
 @media (max-width: 600px) {
     body {
-        padding: 15px 8px;
+        padding: 20px 10px;
     }
-    
+
     .archivo {
         padding: 30px 20px;
         transform: rotate(0deg);
     }
 
-    h1 {
+    .encabezado-archivo h1 {
         font-size: 1.7em;
     }
 
-    /* Suavizado de overlays en móviles para lectura limpia */
-    .quemadura,
-    .mancha-vino,
-    .cenicero-overlay {
-        opacity: 0.35;
+    .letra {
+        font-size: 0.95em;
     }
 }
