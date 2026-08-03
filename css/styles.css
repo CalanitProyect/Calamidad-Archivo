@@ -431,3 +431,132 @@ a.objeto:hover .polaroid, .objeto:hover .polaroid {
         z-index: 20 !important;
     }
 }
+/* ==========================================
+   ESTILO: REPRODUCTOR ESTILO WALKMAN
+========================================== */
+.walkman-cuerpo {
+    margin: 40px auto;
+    width: 280px; /* Ancho compacto */
+    background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 100%); /* Metal gris */
+    border: 4px solid #333333; /* Borde oscuro */
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 15px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.3), /* Sombra ochentera */
+                inset 0 0 15px rgba(255,255,255,0.5); /* Brillo metálico */
+    position: relative;
+    font-family: 'Courier New', monospace; /* Fuente digital para controles */
+}
+
+/* La ventana transparente donde se ve la cinta */
+.ventana-cinta {
+    width: 180px;
+    height: 80px;
+    background: #1a1a1a; /* Fondo oscuro interior */
+    border: 3px inset #666; /* Borde de la ventana hundido */
+    margin: 0 auto 15px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Simulación de los carreteles de la cinta girando */
+.ventana-cinta::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 2px;
+    background: #555; /* La cinta magnética */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carretel {
+    width: 30px;
+    height: 30px;
+    background: #888;
+    border-radius: 50%;
+    border: 6px solid #333;
+    position: relative;
+    animation: girar 3s linear infinite; /* Animación de giro */
+}
+
+/* Agujeritos del carretel */
+.carretel::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: -8px 0 0 #1a1a1a, 8px 0 0 #1a1a1a, 0 -8px 0 #1a1a1a, 0 8px 0 #1a1a1a;
+}
+
+/* Simulación de botones mecánicos */
+.controles-walkman {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.controles-walkman div {
+    width: 35px;
+    height: 25px;
+    background: #333;
+    color: #f0f0f0;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: default;
+    box-shadow: 1px 1px 0 #000, inset 0 1px 3px rgba(255,255,255,0.2);
+}
+
+/* Efecto hover simulando presionar el botón */
+.controles-walkman div:hover {
+    background: #8b0000; /* Se pone rojo al pasar el mouse */
+    box-shadow: none;
+    transform: translate(1px, 1px);
+}
+
+/* Integración del reproductor HTML5 */
+.reproductor-audio {
+    background: transparent;
+    border: none;
+    padding: 5px;
+    margin-top: 0;
+}
+
+/* Estilizando el <audio> nativo para que no cante tanto */
+.lector-audio {
+    width: 100%;
+    height: 30px;
+    /* Ocultamos la barra de progreso original para que parezca más viejo */
+    /* Ojo: esto puede variar según el navegador, pero intentamos ocultarlo */
+    filter: grayscale(1) contrast(1.2) brightness(0.9);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Animación de los carreteles */
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .walkman-cuerpo {
+        width: 240px; /* Un poco más chico en celu */
+    }
+    .ventana-cinta {
+        width: 150px;
+        height: 70px;
+    }
+}
