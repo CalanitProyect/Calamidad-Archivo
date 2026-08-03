@@ -41,7 +41,7 @@ body {
     border-radius: 4px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.5);
 
-    /* FORZAR FILA Y SCROLL HORIZONTAL */
+    /* FORZAR FILA Y SCROLL HORIZONTAL EN ESCRITORIO */
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -136,9 +136,9 @@ body {
 }
 
 /* Ubicaciones de las tiras */
-.neg-mea    { top: 380px; left: 10px;  width: 120px; transform: rotate(-12deg); } /* <--- Negativo 1 (abajo izquierda) */
+.neg-mea    { top: 380px; left: 10px;  width: 120px; transform: rotate(-12deg); } /* Negativo 1 (abajo izquierda) */
 .neg-perm   { top: 350px; left: 300px; width: 110px; transform: rotate(15deg); }
-.neg-vacio1 { top: 280px; left: 650px; width: 115px; transform: rotate(12deg); }  /* <--- Negativo 2 movido abajo a la derecha */
+.neg-vacio1 { top: 280px; left: 650px; width: 115px; transform: rotate(12deg); }  /* Negativo 2 (abajo a la derecha) */
 .neg-vacio2 { bottom: 30px; left: 520px; }
 
 /* ==========================================
@@ -197,4 +197,44 @@ body {
 
 ::-webkit-scrollbar-corner {
     background: #111111;
+}
+
+/* ==========================================
+   AJUSTES EXCLUSIVOS PARA MÓVILES
+========================================== */
+@media (max-width: 768px) {
+    .tablero {
+        /* Cambia a columna vertical para pantallas pequeñas */
+        flex-direction: column !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        align-items: center !important;
+        gap: 30px !important;
+        padding: 40px 20px !important;
+    }
+
+    /* Convertir posicionamiento absoluto a relativo para evitar solapamientos en vertical */
+    .negativo-principal,
+    .negativo-tira,
+    .dije-colgado {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+    }
+
+    /* ORDEN DE INTERCALACIÓN (Ajusta los nombres de clase según tu HTML) */
+    .expediente { order: 1 !important; }
+    
+    .polaroid-1, .foto-1   { order: 2 !important; transform: rotate(-3deg) !important; }
+    .cancion-1, .entrada-1 { order: 3 !important; }
+    
+    .polaroid-2, .foto-2   { order: 4 !important; transform: rotate(4deg) !important; }
+    .cancion-2, .entrada-2 { order: 5 !important; }
+    
+    .neg-mea, .dije-colgado { order: 6 !important; }
+    
+    .polaroid-3, .foto-3   { order: 7 !important; transform: rotate(-2deg) !important; }
+    .cancion-3, .entrada-3 { order: 8 !important; }
 }
