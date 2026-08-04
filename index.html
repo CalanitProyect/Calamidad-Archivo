@@ -30,8 +30,8 @@
             padding: 20px 10px;
         }
 
-        /* ==========================================
-           TABLERO DE CORCHO
+      /* ==========================================
+           TABLERO DE CORCHO & SCROLLBAR CORREGIDA
         ========================================== */
         .tablero {
             position: relative;
@@ -51,8 +51,42 @@
             gap: 35px 25px;
             padding: 60px 40px;
             margin: 0 auto;
-            overflow-x: hidden;
+            overflow-x: auto; /* Permite scroll horizontal si se desborda */
             overflow-y: visible;
+
+            /* Scrollbar para Firefox */
+            scrollbar-width: thin;
+            scrollbar-color: #3d2612 #1a110b;
+        }
+
+        /* Scrollbar para Chrome, Safari y Edge en el Tablero */
+        .tablero::-webkit-scrollbar {
+            height: 12px;
+            width: 12px;
+        }
+        .tablero::-webkit-scrollbar-track {
+            background: #1a110b;
+            border-radius: 6px;
+        }
+        .tablero::-webkit-scrollbar-thumb {
+            background: #3d2612;
+            border: 2px solid #8c6747;
+            border-radius: 6px;
+        }
+        .tablero::-webkit-scrollbar-thumb:hover {
+            background: #5a3a1d;
+        }
+
+        /* ==========================================
+           RESALTADO DE TEXTO PERSONALIZADO (GLOBAL)
+        ========================================== */
+        ::selection {
+            background-color: #8c6747 !important;
+            color: #f3ead7 !important;
+        }
+        ::-moz-selection {
+            background-color: #8c6747 !important;
+            color: #f3ead7 !important;
         }
 
         .expediente, 
@@ -104,7 +138,6 @@
             transform: rotate(-2deg);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
         /* ==========================================
            NEGATIVOS & RELICARIO
         ========================================== */
