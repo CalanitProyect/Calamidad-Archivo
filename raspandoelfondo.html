@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archivo 03/07 - Raspando el Fondo | Calamidad</title>
 
-    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-    <!-- Estilos compartidos -->
     <link rel="stylesheet" href="css/cancion.css">
 </head>
 <body>
 
     <main class="contenedor">
         <article class="archivo">
-            <!-- Efecto visual de mancha/cerco de vino -->
             <div class="mancha-vino"></div>
 
             <header class="encabezado-archivo">
@@ -76,20 +73,32 @@
                     ¿No estábamos ya,<br>
                     todos,<br>
                     raspando el fondo<br>
-                    de nuestra bondad?
+                    of nuestra bondad?
                 </p>
 
                 <p>Quedan cuatro cintas.</p>
 
                 <p class="firma">- C</p>
             </section>
-<div class="reproductor-audio">
-                <div class="etiqueta-reproductor">AUDIO RECUPERADO DE CINTA #03</div>
-                <audio controls preload="none" class="lector-audio">
-                    <source src="mp3/raspandoelfondo.mp3" type="audio/mpeg">
-                    
-                </audio>
+
+            <div class="walkman-contenedor">
+                <div class="cuerpo-walkman">
+                    <div class="ventana-cassette">
+                        <div class="cassette">
+                            <div class="rueda izquierda"></div>
+                            <div class="rueda derecha"></div>
+                            <span class="etiqueta-cassette">CINTA #03</span>
+                        </div>
+                    </div>
+                    <div class="controles-walkman">
+                        <audio controls preload="none" class="lector-audio">
+                            <source src="mp3/raspandoelfondo.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
             </div>
+
             <footer class="metadatos">
                 <p><strong>UBICACIÓN DEL HALLAZGO:</strong> Sobre una mesa de madera, junto a una copa de vino.</p>
                 <p><strong>SERIE:</strong> 68343</p>
