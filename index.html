@@ -300,19 +300,19 @@
         .vhs          { order: 15; transform: translate(20px, 20px) rotate(6deg); z-index: 10; }
         .entradas     { order: 16; }
 
-        /* ==========================================
-   BOTÓN ENTRADAS (IMAGEN PNG) - TAMAÑO Y POSICIÓN
+ /* ==========================================
+   BOTÓN ENTRADAS (POSICIÓN ABAJO)
 ========================================== */
 .entradas-img {
-    position: absolute;   /* Permite situarlo libremente en el corcho */
-    top: 40px;            /* Ajustá la altura vertical según dónde lo quieras */
-    right: 40px;          /* Ajustá la posición horizontal */
-    width: 140px;         /* Ancho controlado del ticket */
-    max-width: 160px;     /* Evita que se agrande de más */
+    position: absolute;
+    bottom: 30px;         /* Anchado a la parte inferior del corcho */
+    right: 40px;          /* Distancia desde el borde derecho */
+    width: 150px;         /* Tamañó controlado de la imagen */
+    max-width: 150px;
     height: auto;
     transform: rotate(-3deg);
     transition: transform 0.25s ease;
-    z-index: 20;          /* Para que quede por encima del corcho y debajo del menú si hace falta */
+    z-index: 20;
     display: block;
 }
 
@@ -324,6 +324,10 @@
     filter: drop-shadow(3px 6px 8px rgba(0, 0, 0, 0.5));
 }
 
+.entradas-img:hover {
+    transform: scale(1.08) rotate(0deg) !important;
+    z-index: 50 !important;
+}
 .entradas-img:hover {
     transform: scale(1.08) rotate(0deg) !important;
     z-index: 50 !important;
@@ -474,15 +478,21 @@
             <img class="dije-img" src="img/relicariosii.png" alt="Relicario con foto">
         </div>
 
-        <article class="expediente">
-            <div class="cinta"></div>
-            <h1>ARCHIVO CALAMIDAD</h1>
-            <p>
-                Durante la restauración de una vivienda antigua fueron recuperadas siete cintas VHS junto con correspondencia y objetos personales.
-                <br><br>
-                La identidad de las personas involucradas permanece incompleta.
-            </p>
-        </article>
+     <article class="expediente">
+    <div class="cinta"></div>
+    <h1>ARCHIVO CALAMIDAD</h1>
+    <p>
+        Durante la restauración de una vivienda antigua fueron recuperadas siete cintas VHS junto con correspondencia y objetos personales.
+        <br><br>
+        La identidad de las personas involucradas permanece incompleta. 
+    </p>
+
+    <div class="link-instagram">
+        <a href="https://www.instagram.com/_calanit_/" target="_blank" rel="noopener noreferrer">
+            REGISTRO: @_calanit_
+        </a>
+    </div>
+</article>
 
         <div class="objeto arbol">
             <img class="pin" src="img/chincherojo.png" alt="Chinche">
