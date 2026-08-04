@@ -560,3 +560,44 @@ a.objeto:hover .polaroid, .objeto:hover .polaroid {
         height: 70px;
     }
 }
+/* ==========================================
+   SCROLLBAR PERSONALIZADA PARA EL TABLERO
+   ========================================== */
+
+/* 1. Para Chrome, Safari y Edge (WebKit) */
+.tablero::-webkit-scrollbar {
+    height: 12px; /* Ancho de la barra horizontal */
+    width: 12px;  /* Ancho de la barra vertical */
+}
+
+.tablero::-webkit-scrollbar-track {
+    background: #1a110b; /* Fondo canal oscuro */
+    border-radius: 6px;
+}
+
+.tablero::-webkit-scrollbar-thumb {
+    background: #3d2612; /* Color de tirador estilo madera */
+    border: 2px solid #8c6747; /* Borde tono corcho */
+    border-radius: 6px;
+}
+
+.tablero::-webkit-scrollbar-thumb:hover {
+    background: #5a3a1d; /* Iluminación suave al pasar el cursor */
+}
+/* ==========================================
+   RESALTADO DE TEXTO PERSONALIZADO
+   ========================================== */
+::selection {
+    background-color: #8c6747 !important; /* Fondo tono corcho/madera */
+    color: #f3ead7 !important;            /* Texto tono papel gastado */
+}
+
+::-moz-selection {
+    background-color: #8c6747 !important;
+    color: #f3ead7 !important;
+}
+/* 2. Para Firefox y estándar CSS */
+.tablero {
+    scrollbar-width: thin;
+    scrollbar-color: #3d2612 #1a110b; /* [Tirador] [Fondo] */
+}
