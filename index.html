@@ -295,69 +295,114 @@
             transform: scale(1.05) rotate(0deg);
         }
 
-        /* ==========================================
+       /* ==========================================
            RESPONSIVO (EXCLUSIVO MOBILE)
         ========================================== */
         @media (max-width: 768px) {
+            
+            /* 1. Ajuste del tablero para móviles */
+            .tablero {
+                flex-direction: row !important; /* Volvemos a fila para poder intercalar */
+                justify-content: space-between !important; /* Separar elementos a los lados */
+                padding: 30px 15px;
+                gap: 15px 10px; /* Reducimos el espacio entre elementos */
+                border-width: 6px;
+                overflow-x: hidden; /* Evitar scroll horizontal extra */
+            }
+
+            /* 2. Mantener el expediente ocupando todo el ancho */
+            .expediente {
+                padding: 20px 15px;
+                margin-bottom: 30px;
+                order: 1;
+                flex-basis: 100%;
+            }
+
+            /* 3. Escalar los elementos decorativos sueltos en vez de ocultarlos */
             .negativo-tira, 
             .negativo-principal, 
             .relicario-asomando { 
-                display: none; 
-            }
-            
-            .tablero {
-                flex-direction: column !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important; 
-                padding: 25px 12px;
-                gap: 18px 0px;
-                border-width: 6px;
+                display: block; /* Ahora sí los mostramos */
             }
 
+            .negativo-principal {
+                top: -10px;
+                left: 10px;
+                width: 140px;
+                transform: rotate(-75deg);
+                opacity: 0.8;
+            }
+
+            .neg-mea    { top: 520px; left: -10px; width: 80px; transform: rotate(-25deg); }
+            .neg-perm   { top: 950px; right: -20px; left: auto; width: 90px; transform: rotate(15deg); }
+            .neg-vacio1 { top: 1350px; left: 10px; width: 80px; transform: rotate(5deg); }
+            .neg-vacio2 { bottom: 150px; right: -10px; left: auto; width: 85px; transform: rotate(-15deg); }
+
+            .relicario-asomando {
+                top: 750px;
+                left: -30px; /* Asomando desde la izquierda */
+                width: 120px;
+                transform: rotate(15deg);
+            }
+
+            /* 4. Reposicionamiento del dije de oro Westwood */
+            .dije-colgado { 
+                position: absolute !important; 
+                top: 1100px !important;
+                right: -20px !important; /* Asomando desde la derecha */
+                left: auto !important;
+                width: 150px !important;
+                transform: rotate(-10deg) !important;
+                z-index: 25; /* Por encima de las fotos */
+            }
+
+            /* 5. Ajuste del tamaño de las Polaroids para móviles */
             .polaroid {
-                width: 145px;
+                width: 135px; /* Un poco más chicas para que entren dos en pantalla */
                 padding: 8px 6px 12px 6px;
             }
 
             .polaroid .foto {
-                height: 120px;
+                height: 115px;
             }
 
             .titulo-polaroid {
-                font-size: 0.85em;
-            }
-            
-            .expediente {
-                padding: 20px 15px;
-                margin-bottom: 25px;
-                order: 1;
+                font-size: 0.75em;
             }
 
-            /* ORDEN Y ZIG-ZAG MOBILE (USANDO .dije-colgado correctamente) */
-            .fichin       { order: 2;  transform: translate(-18px, 0px) rotate(-5deg); }
-            .arbol        { order: 3;  transform: translate(18px, -5px) rotate(6deg); }
-            .tacita       { order: 4;  transform: translate(-15px, 0px) rotate(5deg); }
-            .beso1        { order: 5;  transform: translate(20px, -5px) rotate(-6deg); }
-            .cenicero     { order: 6;  transform: translate(-18px, 0px) rotate(6deg); }
-            .casamiento   { order: 7;  transform: translate(15px, -5px) rotate(-4deg); }
-            
-            .dije-colgado { 
-                position: relative !important;
-                top: auto !important;
-                right: auto !important;
-                order: 8 !important; 
-                transform: translate(0px, 0px) rotate(-7deg) !important; 
-                width: 130px !important; 
+            /* 6. Distribuir las Polaroids en formato Zig-Zag / Desordenado */
+            /* Usamos flex-basis para controlar el espacio que ocupan */
+            .objeto {
+                flex-basis: 45%; /* Cada objeto ocupa casi la mitad del ancho */
             }
 
-            .entrada      { order: 9;  transform: translate(-20px, 0px) rotate(-5deg); }
-            .beso2        { order: 10; transform: translate(18px, -5px) rotate(6deg); }
-            .libro        { order: 11; transform: translate(-15px, 0px) rotate(7deg); }
-            .cinefoto     { order: 12; transform: translate(20px, -5px) rotate(-5deg); }
-            .llave        { order: 13; transform: translate(-18px, 0px) rotate(-6deg); }
-            .slayfoto     { order: 14; transform: translate(15px, -5px) rotate(4deg); }
-            .vhs          { order: 15; transform: translate(-12px, 0px) rotate(5deg); }
-            .entradas     { order: 16; }
+            /* Ajustes de posición para crear el desorden controlado */
+            .fichin       { order: 2;  transform: translateY(10px) rotate(-4deg); }
+            .arbol        { order: 3;  transform: translateY(-5px) rotate(5deg); }
+            
+            .tacita       { order: 4;  transform: translateY(20px) rotate(3deg); }
+            .beso1        { order: 5;  transform: translateY(0px) rotate(-5deg); }
+            
+            .cenicero     { order: 6;  transform: translateY(15px) rotate(-6deg); }
+            .casamiento   { order: 7;  transform: translateY(30px) rotate(4deg); }
+            
+            .entrada      { order: 8;  transform: translateY(5px) rotate(5deg); }
+            .beso2        { order: 9;  transform: translateY(25px) rotate(-3deg); }
+            
+            .libro        { order: 10; transform: translateY(10px) rotate(-5deg); }
+            .cinefoto     { order: 11; transform: translateY(35px) rotate(6deg); }
+            
+            .llave        { order: 12; transform: translateY(15px) rotate(4deg); }
+            .slayfoto     { order: 13; transform: translateY(5px) rotate(-6deg); }
+            
+            .vhs          { order: 14; transform: translateY(25px) rotate(-4deg); margin-bottom: 20px;}
+
+            /* 7. Botón Entradas centrado al final */
+            .entradas { 
+                order: 15; 
+                flex-basis: 80%; /* Centrado y más ancho al final */
+                margin: 40px auto 20px auto;
+            }
         }
     </style>
 </head>
