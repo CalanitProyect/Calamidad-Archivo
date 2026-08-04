@@ -301,32 +301,33 @@
         .entradas     { order: 16; }
 
         /* ==========================================
-           BOTÓN ENTRADAS
-        ========================================== */
-        .entradas {
-            display: block;
-            background: #8b0000;
-            color: #f3ead7;
-            text-decoration: none;
-            text-align: center;
-            padding: 14px 22px;
-            font-weight: bold;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            border: 2px dashed #f3ead7;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-            transform: rotate(-1deg);
-            transition: all 0.2s ease;
-            z-index: 10;
-            flex-basis: 100%;
-            max-width: 280px;
-            margin-top: 50px;
-        }
+   BOTÓN ENTRADAS (IMAGEN PNG) - TAMAÑO Y POSICIÓN
+========================================== */
+.entradas-img {
+    position: absolute;   /* Permite situarlo libremente en el corcho */
+    top: 40px;            /* Ajustá la altura vertical según dónde lo quieras */
+    right: 40px;          /* Ajustá la posición horizontal */
+    width: 140px;         /* Ancho controlado del ticket */
+    max-width: 160px;     /* Evita que se agrande de más */
+    height: auto;
+    transform: rotate(-3deg);
+    transition: transform 0.25s ease;
+    z-index: 20;          /* Para que quede por encima del corcho y debajo del menú si hace falta */
+    display: block;
+}
 
-        .entradas:hover {
-            background: #a00000;
-            transform: scale(1.05) rotate(0deg);
-        }
+.entradas-img img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    filter: drop-shadow(3px 6px 8px rgba(0, 0, 0, 0.5));
+}
+
+.entradas-img:hover {
+    transform: scale(1.08) rotate(0deg) !important;
+    z-index: 50 !important;
+}
 
        /* ==========================================
            RESPONSIVO (EXCLUSIVO MOBILE)
